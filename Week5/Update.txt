@@ -1,0 +1,18 @@
+So this is a new week and the Baron card is up and running. 
+I have not been able to make the computer play it since it will
+only play the lower card so that is kind of annoying. My deck 
+size isn't not working properly either. Also my biggest issue is
+that I cannot make the delay happen where I want so that it looks
+like the computer has two cards which is the worse thing that I 
+have encountered so far. I also made it so that the tokens of 
+affection are now properly showing up. I really had to battle 
+with the css for them to show up in the bottom but this also
+caused me to move the just played cards up to the top. I also had
+to change the size of the wrapper and all the tables. For the past
+two week I have had an error:
+"Uncaught TypeError: 
+((n.event.special[g.origType] || 
+(intermediate value)).handle || g.handler).apply 
+is not a functionn.event.dispatch @ jquery.min.js:3r.handle 
+@ jquery.min.js:3"
+
