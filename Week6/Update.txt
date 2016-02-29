@@ -1,0 +1,18 @@
+So this is a new week and the first thing I wanted to do
+was to fix the fact that the computer was not showing it 
+second card when it was its turn due to time outs but 
+kyle helped fixed this and this is no longer and issue.
+I also spent a lot of time trying to figure out a different
+approach to do growl messages. I tried putting in bootstrap type
+growl messages but the css that had to come with it totally messed
+up my own css so I decided not to move forward with it (https://github.com/ifightcrime/bootstrap-growl)
+Another thing I had to do and spent a little more than two days with is that
+I had to redo how I was making my deck. It was something that I took 
+from Advanced web but did not realize that I was making two different
+decks with each of the players so I am glad that I caught that. 
+Now I have a deck file that works as a player in a way such that
+now the players somewhat share the deck and call upon it to
+deal a new card and see if the deck is now empty. I also added
+a function that deals with if there are no more cards left in
+the deck. 
+

@@ -1,0 +1,73 @@
+function Deck() {
+    this.hand = [];
+	this.deck = [];
+
+    
+    this.init = function() {
+        
+        var Guards = [1,1,1,1,1];
+        var Priests = [2,2];
+		var Barons = [3,3];
+
+        for (i = 0; i < Guards.length; i++) {
+            this.deck.push(new GuardCard(i+1, Guards[i], Guards[i])); 
+        }
+
+        for (i = 0; i < Priests.length; i++) {
+            this.deck.push(new PriestCard(i+2, Priests[i], Priests[i]));
+        }
+		
+		for (i = 0; i < Barons.length; i++) {
+            this.deck.push(new BaronCard(i+3, Barons[i], Barons[i]));
+        }
+
+        this.shuffle();
+    };
+	
+	this.getHand = function(){
+		return this.deck.splice(0, 1);
+	}
+
+
+    // Draw a card, return true if successful and false if no cards to draw
+    this.drawCard = function(player) {
+        if (this.deck.length === 0) {
+            return false; // Deck empty, cannot draw
+        } else {
+            var card = this.deck.shift(); // Remove card
+			console.log(player.hand.length);
+            if (player.hand.length < 2) {
+                player.hand.push(card); // Add card if less than 5 cards in hand
+            }
+            return true; // Card successfully drawn
+        }
+    };
+
+    // Get player deck size
+    this.deckSize = function() {
+		return this.deck.length;
+    }
+	
+	
+    // Shuffle deck
+    this.shuffle = function() {  
+      var currentIndex = this.deck.length, temporaryValue, randomIndex ;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = this.deck[currentIndex];
+        this.deck[currentIndex] = this.deck[randomIndex];
+        this.deck[randomIndex] = temporaryValue;
+      }
+    };
+
+
+    this.init();
+};
+
