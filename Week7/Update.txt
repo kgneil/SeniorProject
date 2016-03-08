@@ -1,0 +1,9 @@
+Week 7 has begun and I should mention that this is the week before
+spring break and I leave for florida half way through the week so 
+this week it is going to be a little less. However the first thing 
+that I have done is to get it so that when the deck ends you compare
+your hands and if it is a tie there is a tie breaker. I started this 
+last week but I had to take it out. The next thing I did was back to 
+the handmaid. The handmaid is now showing up and somewhat working. I 
+have tested it and so far it works fine so I am not too sure if I 
+should fix anything before I move on to the prince. 
