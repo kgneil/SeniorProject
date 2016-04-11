@@ -1,0 +1,6 @@
+Week 10 and I Worked on countess and princess cards. Both of them are now working with minor
+issues. I worked on having the computer be able to guess smart cards. Now when it uses a 
+guard it will only guess cards that are still available which do not include the other guards.
+I also worked a little on the css.
+
+

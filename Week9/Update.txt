@@ -1,0 +1,5 @@
+So this is week 9 I decided to combine weeks since last week I only changed
+CSS and did not work on functionality. I finally added in being able to guess
+Handmaid and prince and I also added in the prince functionality. I also 
+have the king in there but it is not at 100%. So far it seems to work but 
+I want to continue Testing. 
