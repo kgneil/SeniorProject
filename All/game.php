@@ -30,25 +30,25 @@
 					<h2> Deck </h2>
 					<img src="backgroundCard.jpg" alt="Card Back"/>
 					<div class="deckSize"></div> 
-					</div><div class="unknown"><ul class="UK"></ul></div>
+					</div><div class="unknown"><h3>Unknown Cards</h3><ul class="UK"></ul></div>
 					
 				</div>
 				<div class="computerSpace">
-					Computer Space 
+					</br>
 					<ul class="PlayedCards">
 					Played cards</br>
 					</ul>
 					<ul class="hand">
 					</ul>
 					<ul class="tokens">
-					Tokens
+					
 					</ul>
 					
 					
 				</div>
 			</div>
 			<div class="userSpace">
-				User Space
+				</br>
 				<ul class="PlayedCards">
 				Just Played</br>
 				</ul>
