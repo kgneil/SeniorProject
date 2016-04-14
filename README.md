@@ -1,8 +1,9 @@
 # SeniorProject
 ## Love Letter AI
-### Created by: Kelsey Neil
-### kgneil@plymouth.edu
-[Website Link](http://turing.plymouth.edu/~kgneil/LoveLetter/game.php)
+Contributors: Kelsey Neil (kgneil)
+Advisor: Kyle Burke (paithan) https://github.com/paithan
+Link: [http://turing.plymouth.edu/~kgneil/LoveLetter/game.php](http://turing.plymouth.edu/~kgneil/LoveLetter/game.php)
+
 
 ## Contents of this file
 * Introduction
@@ -14,9 +15,6 @@
   - card.js
   - player.js
   - deck.js
-* Installation
-* Configuration
-* Troubleshooting
 * FAQ
 * Maintainers
 
