@@ -1,346 +1,325 @@
-header, footer{	
-	color: #04396C;
-	text-align: center;
-	margin-bottom: 0px;
-	padding-bottom: 0px;
+header,
+footer {
+    color: #04396C;
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
-
-header > i{
-	float: right;
-	position: absolute;
-	right: 15px;
+header > i {
+    float: right;
+    position: absolute;
+    right: 15px;
     top: 20px;
 }
-
 body {
-	font-family: 'Merriweather', serif;
-	background-color: #B3CEE8;
+    font-family: 'Merriweather', serif;
+    background-color: #B3CEE8;
 }
 h1 {
-	font-size: 36pt;
+    font-size: 36pt;
 }
-h2, h1 {
-	margin: 0px;
+h2,
+h1 {
+    margin: 0px;
 }
 li {
-	display: inline;
+    display: inline;
 }
-li > img{
-	height: 250px;
-	width: 180px;
-	margin-right: 15px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 1px solid #000;
-
-	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
-
+li > img {
+    height: 225px;
+    width: 180px;
+    margin-right: 15px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #000;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 }
-.deck > img{
-	height: 230px;
-	width: 180px;
-	margin-left: 35px;
-	margin-top: 15px;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 1px solid #000;
-	
-	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+.deck > img {
+    height: 230px;
+    width: 180px;
+    margin-left: 35px;
+    margin-top: 15px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #000;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 }
-.deck>h2{
-	margin-top: 25px;
-	margin-left: 100px;
-	color: #B6B6B6;
+.deck>h2 {
+    margin-top: 25px;
+    margin-left: 100px;
+    color: #B6B6B6;
 }
-.deck{
-	float: left;
-	width:50%;
-	margin-right: 0px;
+.deck {
+    float: left;
+    width: 50%;
+    margin-right: 0px;
 }
-.deckSize>h3{
-	margin-left: 70px;
-	color: #B6B6B6;
+.deckSize>h3 {
+    margin-left: 70px;
+    color: #B6B6B6;
 }
-ul.UK{
-	margin-top:0px;
-	margin-bottom:0px;
+ul.UK {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
-.unknown>h3{
-	margin-left: 28px;
-	margin-bottom: 0px;
-	color: #B6B6B6;
+.unknown>h3 {
+    margin-left: 28px;
+    margin-bottom: 0px;
+    color: #B6B6B6;
 }
-.unknown{
-	float:right;
-	width: 50%;
-	margin-left: 0px;
-	padding-top: 10px;
+.unknown {
+    float: right;
+    width: 50%;
+    margin-left: 0px;
+    padding-top: 10px;
 }
-.table{
-	height: 375px;
-	width: 525px;
-	margin-top: 35px;
-	margin-left: 35px;
-	margin-right: 35px;
-	
-	background-color: #04396C;
-	float:right;
+.table {
+    height: 375px;
+    width: 525px;
+    margin-top: 15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    background-color: #04396C;
+    float: right;
 }
-.UK{
-	margin-top: 0px;
-	padding-left:0px;
-
+.UK {
+    margin-top: 0px;
+    padding-left: 0px;
 }
-.card > header{
-	font-size: 26px; 
-	color: #212121;
-	border-bottom: 1px solid #000;
-	display: block;
-	height: 33px;
-	padding: 5px 0;
+.card > header {
+    font-size: 26px;
+    color: #212121;
+    border-bottom: 1px solid #000;
+    display: block;
+    height: 33px;
+    padding: 5px 0;
 }
-
-.UKcard > header{
-	font-size: 15px; 
-	color: #212121;
-	border-bottom: 1px solid #000;
-	width: 100%;
-	display: inline-block;
-	margin-top: 4px;
-	height: 25px;
+.UKcard > header {
+    font-size: 15px;
+    color: #212121;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    display: inline-block;
+    margin-top: 4px;
+    height: 25px;
 }
-
 .card {
-	background-image: url("texture_paper.jpg");
-	position: relative;
-	
-	height: 230px;
-	width: 180px;
-	float: left;
-	margin-right: 12px;
-	text-align: left;
-
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 1px solid #000;
-
-	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    background-image: url("texture_paper.jpg");
+    position: relative;
+    height: 230px;
+    width: 180px;
+    float: left;
+    margin-right: 12px;
+    text-align: left;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #000;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 }
 .UKcard {
-	background-image: url("texture_paper.jpg");
-	position: relative;
-	margin-top: 25px;
-	height: 100px;
-	width: 100px;
-	float: left;
-	margin-right: 12px;
-	text-align: left;
-	margin-left: 0px;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 1px solid #000;
-
-	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    background-image: url("texture_paper.jpg");
+    position: relative;
+    margin-top: 25px;
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin-right: 12px;
+    text-align: left;
+    margin-left: 0px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #000;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 }
-.card > p{
-	padding-left: 3px;
-	color: #212121;
-	margin-top: 2px;
-	font-size: 10pt;
-	position: relative;
-	text-align: center;
-	
+.card > p {
+    padding-left: 3px;
+    padding-right: 3px;
+    color: #212121;
+    margin-top: 2px;
+    font-size: 10pt;
+    position: relative;
+    text-align: center;
 }
-.card > img{
-	display: block;
+.card > img {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-	height: 90px;
-	width: 100px;
-	
+    height: 90px;
+    width: 100px;
 }
-.UKcard > img{
-	display: block;
+.UKcard > img {
+    display: block;
     margin-left: auto;
-	margin-top: 3px;
+    margin-top: 3px;
     margin-right: auto;
-	height: 63px;
-	width: 60px;
-	
+    height: 63px;
+    width: 60px;
 }
-.card > h4{
-	float: left;
-	height: 43px;
-	width: 20px;
-	border-right: 1px solid #000;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	padding-right: 5px;
-	padding-left: 5px;
-	color: #212121;
-	font-size: 2em; 
-	display: block;
+.card > h4 {
+    float: left;
+    height: 43px;
+    width: 20px;
+    border-right: 1px solid #000;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #212121;
+    font-size: 2em;
+    display: block;
 }
-
-.computerSpace{
-	height: 375px;
-	width: 525px;	
-	margin:0 auto;
-	margin-left: 35px;
-	margin-top: 35px;
-	display:inline-block;
-	background-color:  #26527C;
-	
-	
+.computerSpace {
+    height: 375px;
+    width: 525px;
+    margin: 0 auto;
+    margin-left: 35px;
+    margin-top: 15px;
+    display: inline-block;
+    background-color: #26527C;
+    padding-right: 5px;
 }
-.hand{
-	height: 245px;
-	width: 400px;
-	margin: 0px;
+.hand {
+    height: 245px;
+    width: 405px;
+    margin: 0px;
+    margin-bottom: 0px;
 }
-
 .screen {
-	height: 550px;
-	width: 300px;
-	text-align:center;
-	padding: 40px;
+    height: 550px;
+    width: 300px;
+    text-align: center;
+    padding: 40px;
 }
-
-.userSpace{
-	height: 375px;
-	width: 525px;
-	margin:0 auto;
-	margin-top: 35px;
-	margin-left: 35px;
-	margin-bottom: 35px;
-	display:inline-block;
-	background-color: #901326;
-	/* http://www.color-hex.com/color/4c0a14 */
-	/*background-color: #D32F2F; */
-	float: left;
-	padding-right: 5px;
+.userSpace {
+    height: 375px;
+    width: 525px;
+    margin: 0 auto;
+    margin-top: 35px;
+    margin-left: 35px;
+    margin-bottom: 15px;
+    display: inline-block;
+    background-color: #901326;
+    /* http://www.color-hex.com/color/4c0a14 */
+    /*background-color: #D32F2F; */
+    float: left;
+    padding-right: 5px;
 }
-
-.referenceCard{
-	display: inline;
+.referenceCard {
+    display: inline;
 }
 .selected {
-	border: 3px solid #0f0;
-	font-weight: 500;
+    border: 3px solid #0f0;
+    font-weight: 500;
 }
-.referenceCard>img{
+.referenceCard>img {
 	height: 375px;
-	width: 240px;	
-	margin:0 auto;
-	margin-left: 35px;
-	margin-top: 35px;
-	margin-bottom: 35px;
+    width: 240px;
+    margin: 0 auto;
+    margin-left: 35px;
+    margin-top: 35px;
+    margin-bottom: 35px;
 }
-
-.tokens>li>img{
-	float: left;
-	height: 40px;
-	width: 50px;
-	margin: 5px;
+.tokens>li>img {
+    float: left;
+    height: 40px;
+    width: 50px;
+    margin: 5px;
 }
-ul.tokens{
-	margin: 0px;
+ul.tokens {
+    margin: 0px;
 }
-.PlayedCards{
-	position:relative;
-	float: right;
-	top:0;
-	overflow: hidden;
+.PlayedCards {
+    position: relative;
+    float: right;
+    top: 0;
+    margin-bottom: 5px;
+    overflow: hidden;
 }
 .justPlayed {
-	float: top;
-	background-image: url("texture_paper.jpg");
-	
-	margin-left: 10px;
-	display: inline;
-	padding-left: 10px;
-	padding-right: 10px;
-	height: 50px;
-	width: 30px;
-	border: 1px solid #000;
-	color: #f00;
-	font-size: 2em; 
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-
+    float: top;
+    background-image: url("texture_paper.jpg");
+    margin-left: 10px;
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50px;
+    width: 30px;
+    border: 1px solid #000;
+    color: #212121;
+    font-size: 2em;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
 }
-.computerSpace>.hand , .userSpace>.hand{
-		margin-top: 50px
+.computerSpace>.hand,
+.userSpace>.hand {
+    margin-top: 65px
 }
-.active{
-  background: #e83a3a;
-  background-image: -webkit-linear-gradient(top, #e83a3a, #db9595);
-  background-image: -moz-linear-gradient(top, #e83a3a, #db9595);
-  background-image: -ms-linear-gradient(top, #e83a3a, #db9595);
-  background-image: -o-linear-gradient(top, #e83a3a, #db9595);
-  background-image: linear-gradient(to bottom, #e83a3a, #db9595);
-  -webkit-border-radius: 16;
-  -moz-border-radius: 16;
-  border-radius: 16px;
-  color: #ffffff;
-  font-size: 25px;
-  padding: 15px 20px 15px 20px;
-  text-decoration: none;
+.active {
+    background: #e83a3a;
+    background-image: -webkit-linear-gradient(top, #e83a3a, #db9595);
+    background-image: -moz-linear-gradient(top, #e83a3a, #db9595);
+    background-image: -ms-linear-gradient(top, #e83a3a, #db9595);
+    background-image: -o-linear-gradient(top, #e83a3a, #db9595);
+    background-image: linear-gradient(to bottom, #e83a3a, #db9595);
+    -webkit-border-radius: 16;
+    -moz-border-radius: 16;
+    border-radius: 16px;
+    color: #ffffff;
+    font-size: 25px;
+    padding: 15px 20px 15px 20px;
+    text-decoration: none;
 }
-
 .card:hover {
-  border-right: 5px solid #000;
+    border-right: 5px solid #000;
 }
-
-#wrapper{
-	padding: 10px;
-	margin: 20px;
-	margin-top: 0px;
-	height: 855px;
-	width: 1160px;
+#wrapper {
+    padding-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 0px;
+    height: 820px;
+    width: 1160px;
 }
 #forms {
-	padding:0px;
-	margin-left: auto;
-	margin-right: auto;
-	height: 625px;
-	width: 320px;
-	overflow: auto;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 625px;
+    width: 320px;
+    overflow: auto;
 }
-
 #forms div {
-	margin: 20px 0px;
-	text-align: center;
+    margin: 20px 0px;
+    text-align: center;
 }
 button {
-	border: none;
-	color: inherit;
-	cursor: pointer;
-	display: inline-block;
-	font-family: inherit;
-	font-size: inherit;
-	font-weight: 700;
-	letter-spacing: 1px;
-	margin: 0px;
-	outline: none;
-	padding: 25px 0;
-	text-align: center;
-	position: relative;
-	text-transform: uppercase;
-	width: 200px;
-	-moz-transition: all 0.3s;
-	-webkit-transition: all 0.3s;
-	transition: all 0.3s;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0px;
+    outline: none;
+    padding: 25px 0;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    width: 200px;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }
 .

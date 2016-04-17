@@ -21,7 +21,7 @@ GuardCard.prototype.template = function() {
                     '<div class="card" data-id="' + this.id + '">' +
                     '<h4>1</h4>' + 
                     '<header>' + this.type + '</header>' +
-					'<img src="GuardPerson.png" alt="Guard">' +
+					'<img src="./images/GuardPerson.png" alt="Guard">' +
                     '<p class="desc">' + this.description() + '</p>' +
                     '</div>' +
                     '</li>';
@@ -48,7 +48,7 @@ PriestCard.prototype.template = function() {
                     '<div class="card" data-id="' + this.id + '">' +
                     '<h4>2</h4>' + 
                     '<header>' + this.type + '</header>' +
-					'<img src="PriestPerson.png" alt="Guard" style="height:110px;">' +
+					'<img src="./images/PriestPerson.png" alt="Guard" style="height:110px;">' +
                     '<p class="desc">' + this.description() + '</p>' +
                     '</div>' +
                     '</li>';
@@ -74,7 +74,7 @@ BaronCard.prototype.template = function() {
                     '<div class="card" data-id="' + this.id + '">' +
                     '<h4>3</h4>' + 
                     '<header>' + this.type + '</header>' +
-					'<img src="BaronPerson.png" alt="Baron" style="height:110px;">' +
+					'<img src="./images/BaronPerson.png" alt="Baron" style="height:110px;">' +
                     '<p class="desc">' + this.description() + '</p>' +
                     '</div>' +
                     '</li>';
@@ -100,7 +100,7 @@ HandmaidCard.prototype.template = function() {
                     '<div class="card" data-id="' + this.id + '">' +
                     '<h4>4</h4>' + 
                     '<header>' + this.type + '</header>' +
-					'<img src="'+this.type+'Person.png" alt="'+this.type+'" style="width:90px;height:110px;">' +
+					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'" style="width:90px;height:110px;">' +
                     '<p class="desc">' + this.description() + '</p>' +
                     '</div>' +
                     '</li>';
@@ -118,7 +118,7 @@ PrinceCard.prototype = Object.create(Card.prototype);
 PrinceCard.prototype.constructor = PrinceCard;
 
 PrinceCard.prototype.description = function() {
-    return "Choose any player(including yourself) to discard his or her hand and draw a new card.";
+    return "Choose any player (including yourself) to discard his or her hand and draw a new card.";
 }
 
 PrinceCard.prototype.template = function() {
@@ -126,7 +126,7 @@ PrinceCard.prototype.template = function() {
                     '<div class="card" data-id="' + this.id + '">' +
                     '<h4>5</h4>' + 
                     '<header>' + this.type + '</header>' +
-					'<img src="'+this.type+'Person.png" alt="'+this.type+'" style="height:110px;">' +
+					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'" style="height:100px;">' +
                     '<p class="desc">' + this.description() + '</p>' +
                     '</div>' +
                     '</li>';
@@ -152,7 +152,7 @@ KingCard.prototype.template = function() {
                     '<div class="card" data-id="' + this.id + '">' +
                     '<h4>6</h4>' + 
                     '<header>' + this.type + '</header>' +
-					'<img src="'+this.type+'Person.png" alt="'+this.type+'" style="height:115px;">' +
+					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'" style="height:115px;">' +
                     '<p class="desc">' + this.description() + '</p>' +
                     '</div>' +
                     '</li>';
@@ -178,7 +178,7 @@ CountessCard.prototype.template = function() {
                     '<div class="card" data-id="' + this.id + '">' +
                     '<h4>7</h4>' + 
                     '<header>' + this.type + '</header>' +
-					'<img src="'+this.type+'Person.png" alt="'+this.type+'">' +
+					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'">' +
                     '<p class="desc">' + this.description() + '</p>' +
                     '</div>' +
                     '</li>';
@@ -204,7 +204,7 @@ PrincessCard.prototype.template = function() {
                     '<div class="card" data-id="' + this.id + '">' +
                     '<h4>8</h4>' + 
                     '<header>' + this.type + '</header>' +
-					'<img src="'+this.type+'Person.png" alt="'+this.type+'" style="height:115px;">' +
+					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'" style="height:115px;">' +
                     '<p class="desc">' + this.description() + '</p>' +
                     '</div>' +
                     '</li>';

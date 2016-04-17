@@ -62,7 +62,7 @@ function Player() {
 	}
 	
 	this.isPlayable = function(card) {
-		console.log("card.type "+card.type);
+		//console.log("card.type "+card.type);
 		if (card.type=="King" || card.type=="Prince"){
 			var other = this.otherCard(card);
 			if(other=="Countess"){
@@ -118,7 +118,7 @@ function Player() {
 
     // Apply card to player
     this.applyCard = function(card) {
-		console.log(card);
+		//console.log(card);
 		
         if (card.type === "Guard") {
             game.applyGuard();

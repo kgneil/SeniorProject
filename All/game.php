@@ -28,15 +28,15 @@
 				<div class="table">
 					<div class="deck">
 					<h2> Deck </h2>
-					<img src="backgroundCard.jpg" alt="Card Back"/>
+					<img src="images/backgroundCard.jpg" alt="Card Back"/>
 					<div class="deckSize"></div> 
 					</div><div class="unknown"><h3>Unknown Cards</h3><ul class="UK"></ul></div>
 					
 				</div>
 				<div class="computerSpace">
-					</br>
+					
 					<ul class="PlayedCards">
-					Played cards</br>
+					
 					</ul>
 					<ul class="hand">
 					</ul>
@@ -48,9 +48,8 @@
 				</div>
 			</div>
 			<div class="userSpace">
-				</br>
 				<ul class="PlayedCards">
-				Just Played</br>
+				
 				</ul>
 				<ul class="hand">
 				
@@ -62,7 +61,7 @@
 			</div>
 			
 			<div class="referenceCard">
-				<img src="ReferenceCard.jpg" alt="Reference Card"/></li>
+				<img src="images/ReferenceCard.jpg" alt="Reference Card"/></li>
 			</div>
 			</div>
 		

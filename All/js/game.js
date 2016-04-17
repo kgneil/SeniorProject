@@ -16,8 +16,7 @@ $( function() {
 
 	game.init = function() {
 
-		$(document).on("keyup", game.check_menu); 
-		$(document).on("click", ".fa-bars", game.show_menu); 
+		//$(document).on("click", ".fa-bars", game.show_menu); 
 		$(document).on("click", ".card", game.card_click); 
 		$(document).on("click", "#GPriest", game.GuessPriest); 
 		$(document).on("click", "#GBaron", game.GuessBaron); 
@@ -195,7 +194,6 @@ $( function() {
 		}
 		
 	};
-	
 	
 	game.GuessBaron = function(){
 			$.colorbox.close();
@@ -480,12 +478,11 @@ $( function() {
 				setTimeout(game.computer_turn, 4000);
 			}
 			else {
-				$.colorbox({
-					href: game.computer.hand[0].type+".jpg",
-					onClosed: game.hide_guess,
-					title:"The computer has..."
-				});
-				setTimeout(game.computer_turn, game.COMPUTER_DELAY);
+				console.log("hello");
+				var f = function(){ game.showCard("Priest"); }
+				setTimeout(f, 1000);
+		
+				
 			}
 		}
 		else {
@@ -500,19 +497,13 @@ $( function() {
 		}
 	};
 	
-	game.applyBaron = function() {
-		
-		if ( game.playerTurn==true ){
-			if (game.computer.handmaid==true){
-				$.growl.warning({ title: "Active Handmaid", message: "The computer has an active handmaid", location: "br" });
-				setTimeout(game.computer_turn, 4000);
-			} 
-			else{
-				$.colorbox({
-					href: game.computer.hand[0].type+".jpg",
-					onClosed: game.hide_guess,
-					title:"The computer has..."
-				});
+	game.showCard = function(card) {
+		game.display_hand("computer", true);
+		if(card == "Priest"){
+			setTimeout(game.computer_turn, 4000);
+		}
+		else{
+			if ( game.playerTurn==true ){
 				if ( game.computer.hand[0].point == game.player.hand[0].point ) {
 					setTimeout(game.computer_turn, game.COMPUTER_DELAY);
 				}
@@ -523,6 +514,36 @@ $( function() {
 					setTimeout(game.win, game.COMPUTER_DELAY);
 				}
 			}
+			else{
+				if ( game.computer.hand[0].point == game.player.hand[0].point ) {
+					setTimeout(game.begin_turn, 4000);
+				}
+				else if ( game.computer.hand[0].point > game.player.hand[0].point ) {
+					setTimeout(game.lose, 4000);
+				}
+				else{
+					setTimeout(game.win, 4000);
+				}
+			}
+			
+		}
+	}
+	game.applyBaron = function() {
+		
+		if ( game.playerTurn==true ){
+			if (game.computer.handmaid==true){
+				$.growl.warning({ title: "Active Handmaid", message: "The computer has an active handmaid", location: "br" });
+				setTimeout(game.computer_turn, 4000);
+			} 
+			else{
+				//$.colorbox({
+				//	href: game.computer.hand[0].type+".jpg",
+				//	onClosed: game.hide_guess,
+				//	title:"The computer has..."
+				//});
+				var f = function(){ game.showCard("Baron"); }
+				setTimeout(f, 1000);				
+			}
 		}
 		else {
 			if (game.player.handmaid==true){
@@ -530,20 +551,8 @@ $( function() {
 				setTimeout(game.begin_turn, 4000);
 			} 
 			else{
-				$.colorbox({
-					href: game.computer.hand[0].type+".jpg",
-					onClosed: game.hide_guess,
-					title:"Compare with the computer"
-				});
-				if ( game.computer.hand[0].point == game.player.hand[0].point ) {
-					setTimeout(game.begin_turn, 4000);
-				}
-				else if ( game.computer.hand[0].point > game.player.hand[0].point ) {
-					setTimeout(game.lose, 5000);
-				}
-				else{
-					setTimeout(game.win, 5000);
-				}
+				var f = function(){ game.showCard("Baron"); }
+				setTimeout(f, 1000);
 			}
 		}
 		
@@ -709,22 +718,27 @@ $( function() {
 		var $unknown = $(".unknown .UK");
 		$unknown.empty();
 		var unknown=game.deck.getUnknown();
-		console.log(unknown[0][0]);
-		for (i = 0; i < unknown.length; i++) {
+		//console.log(unknown[0][0]);
+		$unknown.append('<li><div class="UKcard"><header> ???????? </header><img src="./images/Qmark.png"></img></div></li>');
+		for (i = 1; i < unknown.length; i++) {
 				
-				$unknown.append('<li><div class="UKcard"><header> '+unknown[i][0].point+' ' + unknown[i][0].type + '</header><img src="'+unknown[i][0].type+'Person.png"></img></div></li>');
+				$unknown.append('<li><div class="UKcard"><header> '+unknown[i][0].point+' ' + unknown[i][0].type + '</header><img src="./images/'+unknown[i][0].type+'Person.png"></img></div></li>');
 		}
 	};
 
-	game.display_hand = function(who) {
+	game.display_hand = function(who, show) {
 		if (who === "computer") {
 			var $hand = $(".computerSpace .hand");
-			var handsize = game.computer.hand;
+			var hand = game.computer.hand;
 			$hand.empty();
 			
-			for (i = 0; i < handsize.length; i++) {
-				$hand.append(handsize[i].template());
-				//$hand.append('<li><img src="backgroundCard.jpg" alt="Card Back"/></li>');
+			for (i = 0; i < hand.length; i++) {
+				if(show==true){
+					$hand.html(hand[i].template());
+					console.log(hand[i]);
+				}else{
+					$hand.append('<li><img src="./images/backgroundCard.jpg" alt="Card Back"/></li>');
+				}
 			}
 			
 		} else {
@@ -790,8 +804,8 @@ $( function() {
 		game.display_decksize();
 
 		// Update hands
-		game.display_hand("player");
-		game.display_hand("computer");
+		game.display_hand("player", false);
+		game.display_hand("computer", false);
 		
 		game.display_just_played("player");
 		game.display_just_played("computer");
@@ -808,7 +822,7 @@ $( function() {
 					onClosed: game.reset,
 					title:"YOU LOSE!!"
 		});
-		setTimeout(game.reset, game.COMPUTER_DELAY);
+
 	}
 	game.win = function(){
 	
@@ -818,7 +832,7 @@ $( function() {
 					onClosed: game.reset,
 					title:"YOU WIN!!"
 		});		
-		setTimeout(game.reset, game.COMPUTER_DELAY);
+
 	}
 	game.init();
 });
