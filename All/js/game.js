@@ -69,7 +69,9 @@ $( function() {
 	
 	game.tie = function(){
 		var playerCards = game.player.justPlayedTotal();
+		console.log("Player cards total: "+ playerCards);
 		var compCards = game.computer.justPlayedTotal();
+		console.log("Computer cards total: "+ compCards);
 		
 		if(playerCards>compCards){
 			$.growl.notice({ title: "TIE BREAKER", message: "YOU WIN!!", location: "br" });
@@ -105,13 +107,31 @@ $( function() {
 		game.computer.handmaid=false;
 		game.playerTurn = false;
 		var cardDrawn = game.computer.drawCard();
-		
-		game.update_display();
-		var hand = game.computer.hand;
-		var card;
-		if( hand[0].point==7 ){
-			if(hand[1].point==5 || hand[1].point==6){
-				card=hand[0];
+		if(cardDrawn){
+			game.update_display();
+			var hand = game.computer.hand;
+			var card;
+			if( hand[0].point==7 ){
+				if(hand[1].point==5 || hand[1].point==6){
+					card=hand[0];
+				}
+				else if(hand[0].point<hand[1].point){
+					card = hand[0];
+				}
+				else{
+					card = hand[1];
+				}
+			}
+			else if( hand[1].point==7 ){
+				if(hand[0].point==5 || hand[0].point==6){
+					card=hand[1];
+				}
+				else if(hand[0].point<hand[1].point){
+					card = hand[0];
+				}
+				else{
+					card = hand[1];
+				}
 			}
 			else if(hand[0].point<hand[1].point){
 				card = hand[0];
@@ -119,26 +139,9 @@ $( function() {
 			else{
 				card = hand[1];
 			}
+			var f = function(){ game.computer_play(card); }
+			setTimeout(f, 3500);
 		}
-		else if( hand[1].point==7 ){
-			if(hand[0].point==5 || hand[0].point==6){
-				card=hand[1];
-			}
-			else if(hand[0].point<hand[1].point){
-				card = hand[0];
-			}
-			else{
-				card = hand[1];
-			}
-		}
-		else if(hand[0].point<hand[1].point){
-			card = hand[0];
-		}
-		else{
-			card = hand[1];
-		}
-		var f = function(){ game.computer_play(card); }
-		setTimeout(f, 3500);
 		
 	}
 	
@@ -536,11 +539,6 @@ $( function() {
 				setTimeout(game.computer_turn, 4000);
 			} 
 			else{
-				//$.colorbox({
-				//	href: game.computer.hand[0].type+".jpg",
-				//	onClosed: game.hide_guess,
-				//	title:"The computer has..."
-				//});
 				var f = function(){ game.showCard("Baron"); }
 				setTimeout(f, 1000);				
 			}
@@ -557,7 +555,7 @@ $( function() {
 		}
 		
 		
-	};
+	}
 
 	game.applyHandmaid = function() {
 		if(game.playerTurn==true){
@@ -718,11 +716,10 @@ $( function() {
 		var $unknown = $(".unknown .UK");
 		$unknown.empty();
 		var unknown=game.deck.getUnknown();
-		//console.log(unknown[0][0]);
+
 		$unknown.append('<li><div class="UKcard"><header> ???????? </header><img src="./images/Qmark.png"></img></div></li>');
-		for (i = 1; i < unknown.length; i++) {
-				
-				$unknown.append('<li><div class="UKcard"><header> '+unknown[i][0].point+' ' + unknown[i][0].type + '</header><img src="./images/'+unknown[i][0].type+'Person.png"></img></div></li>');
+		for (i = 1; i < unknown.length; i++) {	
+			$unknown.append('<li><div class="UKcard"><header> '+unknown[i][0].point+' ' + unknown[i][0].type + '</header><img src="./images/'+unknown[i][0].type+'Person.png"></img></div></li>');
 		}
 	};
 
@@ -738,6 +735,8 @@ $( function() {
 					console.log(hand[i]);
 				}else{
 					$hand.append('<li><img src="./images/backgroundCard.jpg" alt="Card Back"/></li>');
+					//$hand.append(hand[i].template());
+					
 				}
 			}
 			

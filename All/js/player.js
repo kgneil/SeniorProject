@@ -53,7 +53,16 @@ function Player() {
 		var card = this.hand[0];
 		this.justPlayed.push(card);
 		this.hand.splice(0, 1);
-		this.drawCard();
+		console.log("Deck Length: "+game.deck.deck.length);
+		if(game.deck.deck.length==0){
+			console.log("this.hand[0] "+this.hand[0]);
+			console.log("UnknownCard "+ game.deck.unknown[0][0]);
+			this.hand[0]=game.deck.unknown[0][0];
+		}
+		else{ 
+			this.drawCard();
+			
+		}
 		//TODO: if you end it and there are no more cards take the unknown
 	}
 	
@@ -109,9 +118,10 @@ function Player() {
     };
 	
 	this.justPlayedTotal = function(){
-		var total;
+		var total = 0;
 		for ( i = 0; i<this.justPlayed.length; i++){
-			total= this.justPlayed[i].point+total;
+			var cardPoint = parseInt(this.justPlayed[i].point);
+			total= cardPoint+total;
 		}
 		return total;
 	}
