@@ -549,6 +549,7 @@ $( function() {
 				setTimeout(game.begin_turn, 4000);
 			} 
 			else{
+				$.growl.warning({ title: "Baron", message: "Computer is playing a Baron", location: "br" });
 				var f = function(){ game.showCard("Baron"); }
 				setTimeout(f, 1000);
 			}
@@ -785,14 +786,14 @@ $( function() {
 			$token.empty();
 
 			for (i = 0; i < game.compWins; i++) {
-				$token.append('<li><img src="token.jpg" alt="Card Back"/></li>');
+				$token.append('<li><img src="./images/token.png" alt="Card Back"/></li>');
 			}
 		} else {
 			var $token = $(".userSpace .tokens");
 			$token.empty();
 
 			for (i = 0; i < game.playerWins; i++) {
-				$token.append('<li><img src="token.jpg" alt="Card Back"/></li>');
+				$token.append('<li><img src="./images/token.png" alt="Card Back"/></li>');
 			}
 		}
 	};

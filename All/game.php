@@ -5,6 +5,7 @@
 		<link href="css/external/jquery.growl.css" rel="stylesheet" type="text/css" />
 		<link href="css/external/colorbox.css" rel="stylesheet" type="text/css" />
 		<link href="css/game.css" rel="stylesheet" type="text/css" />
+		<link href='https://fonts.googleapis.com/css?family=Dancing+Script|Satisfy|Cookie|Pinyon+Script|Niconne|Homemade+Apple' rel='stylesheet' type='text/css'>
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="js/external/jquery.growl.js" type="text/javascript"></script>
