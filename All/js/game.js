@@ -6,8 +6,8 @@ var	game = {
 	deck: null,
 	playerTurn: true,
 	paused: false,
-	compWins: null,
-	playerWins: null,
+	compWins: 0,
+	playerWins: 0,
 };
 
 $( function() {
@@ -23,7 +23,6 @@ $( function() {
 		$(document).on("click", "#GHandmaid", game.GuessHandmaid); 
 		$(document).on("click", "#GPrince", game.GuessPrince); 
 		$(document).on("click", "#GKing", game.GuessKing); 
-		$(document).on("click", "#GPrince", game.GuessPrince); 
 		$(document).on("click", "#GCountess", game.GuessCountess); 
 		$(document).on("click", "#GPrincess", game.GuessPrincess); 
 		$(document).on("click", "#PlayerPrinced", game.PlayerPrinced); 
@@ -168,7 +167,6 @@ $( function() {
 	
 	game.GuessPriest = function(){
 		$.colorbox.close();
-		
 		if(game.playerTurn==true){
 			if(game.computer.hand[0].type=='Priest'  && game.computer.handmaid==false ){
 				$.growl.notice({ title: "Guard", message: "The Computer has a Priest! You WON!!!!!", location: "br" });
@@ -181,9 +179,8 @@ $( function() {
 			}
 		}
 		else{
-			
 			$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a Priest", location: "br" });
-			if(game.player.hand[0].type=="Priest"  && computer.player.handmaid==false ){
+			if(game.player.hand[0].type=="Priest"  && game.player.handmaid==false ){
 				$.growl.error({ title: "Guard", message: "You have a Priest! You Lose!!!!!", location: "br" });
 				setTimeout(game.lose, game.COMPUTER_DELAY);
 			}
@@ -199,9 +196,8 @@ $( function() {
 	};
 	
 	game.GuessBaron = function(){
-			$.colorbox.close();
-			
-			if(game.playerTurn==true){
+		$.colorbox.close();
+		if(game.playerTurn==true){
 				
 				$.growl({ title: "Guard", message: "You used a Guard and guessed a Baron", location: "br" });
 				if(game.computer.hand[0].type=='Baron'  && game.computer.handmaid==false ){
@@ -277,15 +273,11 @@ $( function() {
 
 	game.GuessPrince = function(){
 		$.colorbox.close();
-			
-			if(game.playerTurn==true){
-				
+		if(game.playerTurn==true){
 			//$.growl.notice({ title: "Guard", message: "You used a Guard and guessed a Prince", location: "br" });
 			if(game.computer.hand[0].type=='Prince'  && game.computer.handmaid==false ){
-				
 				$.growl.notice({ title: "Guard", message: "The Computer has a Prince! You WON!!!!!", location: "br" });
-				
-				setTimeout(game.win, game.COMPUTER_DELAY);
+				setTimeout(game.win, 3000);
 			}
 			else if (game.computer.handmaid==true){
 				$.growl.warning({ title: "Active Handmaid", message: "The Computer has an active handmaid", location: "br" });
@@ -297,7 +289,6 @@ $( function() {
 			}
 		}
 		else{
-			
 			$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a Prince", location: "br" });
 			if(game.player.hand[0].type=="Prince"  && game.player.handmaid==false ){
 				$.growl.error({ title: "Guard", message: "You have a Prince! You Lost!!!!", location: "br" });
@@ -735,8 +726,8 @@ $( function() {
 					$hand.html(hand[i].template());
 					console.log(hand[i]);
 				}else{
-					$hand.append('<li><img src="./images/backgroundCard.jpg" alt="Card Back"/></li>');
-					//$hand.append(hand[i].template());
+					//$hand.append('<li><img src="./images/backgroundCard.jpg" alt="Card Back"/></li>');
+					$hand.append(hand[i].template());
 					
 				}
 			}
@@ -818,7 +809,7 @@ $( function() {
 	game.lose = function() {
 		game.compWins = game.compWins +1;
 		$.colorbox({
-					href:"lost.jpg",
+					href:"./images/lose.jpg",
 					onClosed: game.reset,
 					title:"YOU LOSE!!"
 		});
@@ -828,7 +819,7 @@ $( function() {
 	
 		game.playerWins= game.playerWins +1;
 		$.colorbox({
-					href:"won.jpg",
+					href:"./images/won.jpg",
 					onClosed: game.reset,
 					title:"YOU WIN!!"
 		});		

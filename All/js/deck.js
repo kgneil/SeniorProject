@@ -13,7 +13,7 @@ function Deck() {
 		var Prince = 2;
 		var King = 1;
 		var Countess = 1;
-		var Princess = 1;
+		var Princess = 12;
 		var id = -1;
 		
         for (i = 0; i < Guards; i++) {
