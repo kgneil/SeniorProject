@@ -568,13 +568,13 @@ $( function() {
 				$.colorbox({
 					href:"PlayPrinceYou.php",
 					onClosed: game.hide_guess,
-					title:"Who Would you like to Use this on?"
+					title:"Who would you like to Prince?"
 				});
 			}else{
 				$.colorbox({
 					href:"PlayPrince.php",
 					onClosed: game.hide_guess,
-					title:"Who Would you like to Use this on?"
+					title:"Who would you like to Prince?"
 				});
 			}
 		}

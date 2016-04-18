@@ -10,10 +10,10 @@ function Deck() {
         var Priests = 2;
 		var Barons = 2;
 		var Handmaid = 2;
-		var Prince = 2;
+		var Prince = 10;
 		var King = 1;
 		var Countess = 1;
-		var Princess = 12;
+		var Princess = 1;
 		var id = -1;
 		
         for (i = 0; i < Guards; i++) {

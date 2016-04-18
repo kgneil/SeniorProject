@@ -193,11 +193,19 @@ ul.UK {
     margin: 0px;
     margin-bottom: 0px;
 }
-.screen {
-    height: 550px;
-    width: 300px;
+.guesses{
+    height: 480px;
+    width: 220px;
     text-align: center;
     padding: 40px;
+	background-color: #B3CEE8;
+}
+.princePick{
+    height: 180px;
+    width: 200px;
+    text-align: center;
+    padding: 35px;
+	background-color: #B3CEE8;
 }
 .userSpace {
     height: 375px;
@@ -264,20 +272,25 @@ ul.tokens {
 .userSpace>.hand {
     margin-top: 65px
 }
-.active {
-    background: #e83a3a;
-    background-image: -webkit-linear-gradient(top, #e83a3a, #db9595);
-    background-image: -moz-linear-gradient(top, #e83a3a, #db9595);
-    background-image: -ms-linear-gradient(top, #e83a3a, #db9595);
-    background-image: -o-linear-gradient(top, #e83a3a, #db9595);
-    background-image: linear-gradient(to bottom, #e83a3a, #db9595);
-    -webkit-border-radius: 16;
-    -moz-border-radius: 16;
-    border-radius: 16px;
-    color: #ffffff;
-    font-size: 25px;
-    padding: 15px 20px 15px 20px;
-    text-decoration: none;
+.active{
+  background: #04396C;
+  background-image: -webkit-linear-gradient(top, #04396C, #104a80);
+  background-image: -moz-linear-gradient(top, #04396C, #104a80);
+  background-image: -ms-linear-gradient(top, #04396C, #104a80);
+  background-image: -o-linear-gradient(top, #04396C, #104a80);
+  background-image: linear-gradient(to bottom, #04396C, #104a80);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #c7c3c7;
+  font-size: 25px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.active:hover {
+  background: #165999;
+  text-decoration: none;
 }
 .card:hover {
     border-right: 5px solid #000;

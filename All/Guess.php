@@ -1,4 +1,4 @@
-<div class="screen">
+<div class="guesses">
     <p><button class="active" id="GPriest">Priest</button></p>
     <p><button class="active" id="GBaron">Baron</button></p>
     <p><button class="active" id="GHandmaid">Handmaid</button></p>
