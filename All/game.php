@@ -20,7 +20,8 @@
 	
 		<header id="head">
 			<h1>Love Letter</h1>
-
+			<i class="fa fa-minus" aria-hidden="true"></i>
+			
 		</header>
 		<body>
 		<div id="wrapper">

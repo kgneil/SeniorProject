@@ -16,15 +16,29 @@ $( function() {
 
 	game.init = function() {
 
-		//$(document).on("click", ".fa-bars", game.show_menu); 
+		$(document).on("hover", ".fa-minus", game.show_minus); 
 		$(document).on("click", ".card", game.card_click); 
-		$(document).on("click", "#GPriest", game.GuessPriest); 
-		$(document).on("click", "#GBaron", game.GuessBaron); 
-		$(document).on("click", "#GHandmaid", game.GuessHandmaid); 
-		$(document).on("click", "#GPrince", game.GuessPrince); 
-		$(document).on("click", "#GKing", game.GuessKing); 
-		$(document).on("click", "#GCountess", game.GuessCountess); 
-		$(document).on("click", "#GPrincess", game.GuessPrincess); 
+		$(document).on("click", "#GPriest", function(){
+			game.guessCard("Priest");
+		});		
+		$(document).on("click", "#GBaron", function(){
+			game.guessCard("Baron");
+		});	
+		$(document).on("click", "#GHandmaid", function(){
+			game.guessCard("Handmaid");
+		});	
+		$(document).on("click", "#GPrince", function(){
+			game.guessCard("Prince");
+		});	
+		$(document).on("click", "#GKing", function(){
+			game.guessCard("King");
+		});	 
+		$(document).on("click", "#GCountess", function(){
+			game.guessCard("Countess");
+		});	
+		$(document).on("click", "#GPrincess", function(){
+			game.guessCard("Princess");
+		});	
 		$(document).on("click", "#PlayerPrinced", game.PlayerPrinced); 
 		$(document).on("click", "#ComputerPrinced", game.ComputerPrinced); 
 		game.deck = new Deck();
@@ -34,6 +48,18 @@ $( function() {
 
 		game.begin_turn();
 	};
+	
+	game.show_minus = function() {
+		console.log("Miunus");
+		var $token = $(".computerSpace .tokens");
+			$token.empty();
+
+		for (i = 0; i < game.compWins; i++) {
+			$token.append('<li><img src="./images/token.png" alt="Card Back"/></li>');
+		}
+	};
+	
+	
 	
 	game.reset = function() {
     
@@ -165,23 +191,25 @@ $( function() {
         game.paused = false;
 	};
 	
-	game.GuessPriest = function(){
+
+	game.guessCard = function(card) {
+		console.log("Guess a "+card);
 		$.colorbox.close();
 		if(game.playerTurn==true){
-			if(game.computer.hand[0].type=='Priest'  && game.computer.handmaid==false ){
-				$.growl.notice({ title: "Guard", message: "The Computer has a Priest! You WON!!!!!", location: "br" });
+			if(game.computer.hand[0].type==card  && game.computer.handmaid==false ){
+				$.growl.notice({ title: "Guard", message: "The Computer has a "+card+"! You WON!!!!!", location: "br" });
 				
 				setTimeout(game.win, game.COMPUTER_DELAY);
 			}
 			else{
-				$.growl.error({ title: "Guard", message: "The Computer does not have a Priest!", location: "br" });
+				$.growl.error({ title: "Guard", message: "The Computer does not have a "+card+"!", location: "br" });
 				setTimeout(game.computer_turn, game.COMPUTER_DELAY);
 			}
 		}
 		else{
-			$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a Priest", location: "br" });
-			if(game.player.hand[0].type=="Priest"  && game.player.handmaid==false ){
-				$.growl.error({ title: "Guard", message: "You have a Priest! You Lose!!!!!", location: "br" });
+			$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a "+card+".", location: "br" });
+			if(game.player.hand[0].type==card  && game.player.handmaid==false ){
+				$.growl.error({ title: "Guard", message: "You have a "+card+"! You Lose!!!!!", location: "br" });
 				setTimeout(game.lose, game.COMPUTER_DELAY);
 			}
 			else if (game.player.handmaid==true){
@@ -192,239 +220,8 @@ $( function() {
 				setTimeout(game.begin_turn, 4000);
 			}
 		}
-		
-	};
-	
-	game.GuessBaron = function(){
-		$.colorbox.close();
-		if(game.playerTurn==true){
-				
-				$.growl({ title: "Guard", message: "You used a Guard and guessed a Baron", location: "br" });
-				if(game.computer.hand[0].type=='Baron'  && game.computer.handmaid==false ){
-					
-					$.growl.notice({ title: "Baron", message: "The Computer has a Baron! You WON!!!!!", location: "br" });
-					
-					setTimeout(game.win, game.COMPUTER_DELAY);
-				}
-				else if (game.computer.handmaid==true){
-					$.growl.warning({ title: "Active Handmaid", message: "The Computer has an active handmaid", location: "br" });
-					setTimeout(game.computer_turn, 2000);
-				}
-				else{
-					setTimeout(game.computer_turn, 2000);
-				}
-			}
-			else{
-				
-				$.growl({ title: "Guard", message: "Computer used a Guard and guessed a Baron", location: "br" });
-				if(game.player.hand[0].type=="Baron"  && game.player.handmaid==false ){
-					$.growl.error({ title: "Guard", message: "You have a Baron! You Lost!!!!", location: "br" });
-					setTimeout(game.lose,3500);
-				}
-				else if (game.player.handmaid==true){
-					$.growl.notice({ title: "Active Handmaid", message: "You have an active handmaid", location: "br" });
-					setTimeout(game.begin_turn, 4000);
-				}
-				else{
-					setTimeout(game.begin_turn, 3000);
-				}
-			}
-		
-	};
-	
-	game.GuessHandmaid = function(){
-			$.colorbox.close();
-			
-			if(game.playerTurn==true){
-				
-				//$.growl.notice({ title: "Guard", message: "You used a Guard and guessed a Handmaid", location: "br" });
-				if(game.computer.hand[0].type=='Handmaid'  && game.computer.handmaid==false ){
-					
-					$.growl.notice({ title: "Guard", message: "The Computer has a Handmaid! You WON!!!!!", location: "br" });
-					
-					setTimeout(game.win, game.COMPUTER_DELAY);
-				}
-				else if (game.computer.handmaid==true){
-					$.growl.warning({ title: "Active Handmaid", message: "The Computer has an active handmaid", location: "br" });
-					setTimeout(game.computer_turn, 2000);
-				}
-				else{
-					$.growl.error({ title: "Guard", message: "The computer does not have a Handmaid", location: "br" });
-					setTimeout(game.computer_turn, 4000);
-				}
-			}
-			else{
-				
-				$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a Handmaid", location: "br" });
-				if(game.player.hand[0].type=="Handmaid"  && game.player.handmaid==false ){
-					$.growl.error({ title: "Guard", message: "You have a Handmaid! You Lost!!!!", location: "br" });
-					setTimeout(game.lose,3500);
-				}
-				else if (game.player.handmaid==true){
-					$.growl.notice({ title: "Active Handmaid", message: "You have an active handmaid", location: "br" });
-					setTimeout(game.begin_turn, 4000);
-				}
-				else{
-					setTimeout(game.begin_turn, 3000);
-				}
-			}
-		
 	};
 
-	game.GuessPrince = function(){
-		$.colorbox.close();
-		if(game.playerTurn==true){
-			//$.growl.notice({ title: "Guard", message: "You used a Guard and guessed a Prince", location: "br" });
-			if(game.computer.hand[0].type=='Prince'  && game.computer.handmaid==false ){
-				$.growl.notice({ title: "Guard", message: "The Computer has a Prince! You WON!!!!!", location: "br" });
-				setTimeout(game.win, 3000);
-			}
-			else if (game.computer.handmaid==true){
-				$.growl.warning({ title: "Active Handmaid", message: "The Computer has an active handmaid", location: "br" });
-				setTimeout(game.computer_turn, 2000);
-			}
-			else{
-				$.growl.error({ title: "Guard", message: "The computer does not have a Prince", location: "br" });
-				setTimeout(game.computer_turn, 4000);
-			}
-		}
-		else{
-			$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a Prince", location: "br" });
-			if(game.player.hand[0].type=="Prince"  && game.player.handmaid==false ){
-				$.growl.error({ title: "Guard", message: "You have a Prince! You Lost!!!!", location: "br" });
-				setTimeout(game.lose,3500);
-			}
-			else if (game.player.handmaid==true){
-				$.growl.notice({ title: "Active Handmaid", message: "You have an active handmaid", location: "br" });
-				setTimeout(game.begin_turn, 4000);
-			}
-			else{
-				$.growl.notice({ title: "Guard", message: "You do not have a Prince", location: "br" });
-				setTimeout(game.begin_turn, 5000);
-			}
-		}
-		
-	};
-	
-	game.GuessKing = function(){
-		$.colorbox.close();
-			
-			if(game.playerTurn==true){
-				
-			//$.growl.notice({ title: "Guard", message: "You used a Guard and guessed a Prince", location: "br" });
-			if(game.computer.hand[0].type=='King'  && game.computer.handmaid==false ){
-				
-				$.growl.notice({ title: "Guard", message: "The Computer has a King! You WON!!!!!", location: "br" });
-				
-				setTimeout(game.win, game.COMPUTER_DELAY);
-			}
-			else if (game.computer.handmaid==true){
-				$.growl.warning({ title: "Active Handmaid", message: "The Computer has an active handmaid", location: "br" });
-				setTimeout(game.computer_turn, 2000);
-			}
-			else{
-				$.growl.error({ title: "Guard", message: "The computer does not have a King", location: "br" });
-				setTimeout(game.computer_turn, 4000);
-			}
-		}
-		else{
-			
-			$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a King", location: "br" });
-			if(game.player.hand[0].type=="King"  && game.player.handmaid==false ){
-				$.growl.error({ title: "Guard", message: "You have a King! You Lost!!!!", location: "br" });
-				setTimeout(game.lose,3500);
-			}
-			else if (game.player.handmaid==true){
-				$.growl.notice({ title: "Active Handmaid", message: "You have an active handmaid", location: "br" });
-				setTimeout(game.begin_turn, 4000);
-			}
-			else{
-				$.growl.notice({ title: "Guard", message: "You do not have a King", location: "br" });
-				setTimeout(game.begin_turn, 5000);
-			}
-		}
-		
-	};
-	
-	game.GuessCountess = function(){
-		$.colorbox.close();
-			
-			if(game.playerTurn==true){
-				
-			//$.growl.notice({ title: "Guard", message: "You used a Guard and guessed a Prince", location: "br" });
-			if(game.computer.hand[0].type=='Countess'  && game.computer.handmaid==false ){
-				
-				$.growl.notice({ title: "Guard", message: "The Computer has a Countess! You WON!!!!!", location: "br" });
-				
-				setTimeout(game.win, game.COMPUTER_DELAY);
-			}
-			else if (game.computer.handmaid==true){
-				$.growl.warning({ title: "Active Handmaid", message: "The Computer has an active handmaid", location: "br" });
-				setTimeout(game.computer_turn, 2000);
-			}
-			else{
-				$.growl.error({ title: "Guard", message: "The computer does not have a Countess", location: "br" });
-				setTimeout(game.computer_turn, 4000);
-			}
-		}
-		else{
-			
-			$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a Countess", location: "br" });
-			if(game.player.hand[0].type=="Countess"  && game.player.handmaid==false ){
-				$.growl.error({ title: "Guard", message: "You have a Countess! You Lost!!!!", location: "br" });
-				setTimeout(game.lose,3500);
-			}
-			else if (game.player.handmaid==true){
-				$.growl.notice({ title: "Active Handmaid", message: "You have an active handmaid", location: "br" });
-				setTimeout(game.begin_turn, 4000);
-			}
-			else{
-				$.growl.notice({ title: "Guard", message: "You do not have a Countess", location: "br" });
-				setTimeout(game.begin_turn, 5000);
-			}
-		}
-		
-	};
-	
-	game.GuessPrincess = function(){
-		$.colorbox.close();
-			
-			if(game.playerTurn==true){
-				
-			//$.growl.notice({ title: "Guard", message: "You used a Guard and guessed a Prince", location: "br" });
-			if(game.computer.hand[0].type=='Princess'  && game.computer.handmaid==false ){
-				
-				$.growl.notice({ title: "Guard", message: "The Computer has a Princess! You WON!!!!!", location: "br" });
-				
-				setTimeout(game.win, game.COMPUTER_DELAY);
-			}
-			else if (game.computer.handmaid==true){
-				$.growl.warning({ title: "Active Handmaid", message: "The Computer has an active handmaid", location: "br" });
-				setTimeout(game.computer_turn, 2000);
-			}
-			else{
-				$.growl.error({ title: "Guard", message: "The computer does not have a Princess", location: "br" });
-				setTimeout(game.computer_turn, 4000);
-			}
-		}
-		else{
-			
-			$.growl.warning({ title: "Guard", message: "Computer used a Guard and guessed a Princess", location: "br" });
-			if(game.player.hand[0].type=="Princess"  && game.player.handmaid==false ){
-				$.growl.error({ title: "Guard", message: "You have a Princess! You Lost!!!!", location: "br" });
-				setTimeout(game.lose,3500);
-			}
-			else if (game.player.handmaid==true){
-				$.growl.notice({ title: "Active Handmaid", message: "You have an active handmaid", location: "br" });
-				setTimeout(game.begin_turn, 4000);
-			}
-			else{
-				$.growl.notice({ title: "Guard", message: "You do not have a Princess", location: "br" });
-				setTimeout(game.begin_turn, 5000);
-			}
-		}
-		
-	};
 	
 	game.applyGuard = function() {
 		if ( game.playerTurn==true ){
@@ -440,24 +237,24 @@ $( function() {
 			this.possibleGuesses = game.computer.computerGuess();
 			var guess = this.possibleGuesses[Math.floor(Math.random() * this.possibleGuesses.length)];
 			if (guess == 2 || guess == 1){
-				game.GuessPriest();
+				game.guessCard("Priest");
 			}
 			else if (guess == 3){
-				game.GuessBaron();
+				game.guessCard("Baron");
 			}
 			else if (guess == 4){
-				game.GuessHandmaid();
+				game.guessCard("Handmaid");
 			}
 			else if (guess == 5){
-				game.GuessPrince();
+				game.guessCard("Prince");
 			}
 			else if (guess == 6){
-				game.GuessKing();
+				game.guessCard("King");
 			}
 			else if (guess == 7){
-				game.GuessCountess();
+				game.guessCard("Countess");
 			}else if (guess == 8){
-				game.GuessPrincess();
+				game.guessCard("Princess");
 			}
 			game.update_display();
 		}

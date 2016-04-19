@@ -199,6 +199,7 @@ ul.UK {
     text-align: center;
     padding: 40px;
 	background-color: #B3CEE8;
+	font-family: 'Merriweather', serif;
 }
 .princePick{
     height: 180px;
@@ -206,6 +207,7 @@ ul.UK {
     text-align: center;
     padding: 35px;
 	background-color: #B3CEE8;
+	font-family: 'Merriweather', serif;
 }
 .userSpace {
     height: 375px;
@@ -321,7 +323,7 @@ button {
     color: inherit;
     cursor: pointer;
     display: inline-block;
-    font-family: inherit;
+    font-family: 'Merriweather', serif;
     font-size: inherit;
     font-weight: 700;
     letter-spacing: 1px;
@@ -336,4 +338,14 @@ button {
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
+header > i {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+}
+.fa{
+	font-size: 32px;
+}
+
 .
