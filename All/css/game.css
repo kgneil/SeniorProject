@@ -338,7 +338,7 @@ button {
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
-header > i {
+.menu{
     cursor: pointer;
     position: absolute;
     right: 15px;
@@ -347,5 +347,22 @@ header > i {
 .fa{
 	font-size: 32px;
 }
-
+.dd{
+    right: 10px;
+    top: 24px;
+	position: absolute;
+	height: 80px;
+	width: 125px;
+	background-color: #26527C;
+}
+.dd > h4 {
+	color: #B6B6B6;
+	margin: 10px;
+}
+a {
+	font-size: 20px;
+	margin: 5px;
+	color: #B6B6B6;
+	font-family: 'Merriweather', serif;
+}
 .

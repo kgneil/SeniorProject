@@ -16,7 +16,8 @@ $( function() {
 
 	game.init = function() {
 
-		$(document).on("hover", ".fa-minus", game.show_minus); 
+		$(document).on("click", ".fa-plus", game.show_menu);
+		$(document).on("click", ".fa-minus", game.show_menu);
 		$(document).on("click", ".card", game.card_click); 
 		$(document).on("click", "#GPriest", function(){
 			game.guessCard("Priest");
@@ -49,30 +50,71 @@ $( function() {
 		game.begin_turn();
 	};
 	
-	game.show_minus = function() {
-		console.log("Miunus");
-		var $token = $(".computerSpace .tokens");
-			$token.empty();
+	game.show_menu = function() {
+		console.log($(this));
+		if ($(this).hasClass("fa-minus")) {
+			console.log("hello");
+			$(".dd").remove();
+			$(".fa").removeClass("fa-minus");
+			
+			$(this).addClass("fa-plus");
+						
+		} else {
+			console.log("he");
+			$(".fa").removeClass("fa-plus");
+			$(this).addClass("fa-minus");
+			$(this).append("<div class='dd'><h4><a href='https://www.alderac.com/tempest/files/2012/09/Love_Letter_Rules_Final.pdf'>Rules</a></h4><h4><a href='https://github.com/kgneil/SeniorProject'>Github</a></h4></div>");
+		}		
 
-		for (i = 0; i < game.compWins; i++) {
-			$token.append('<li><img src="./images/token.png" alt="Card Back"/></li>');
-		}
 	};
-	
 	
 	
 	game.reset = function() {
-    
-        game.deck = new Deck();
+		game.checkEnd();
+		game.deck = new Deck();
 		game.player = new Player();
 		game.computer = new Player();
 		
-        game.paused = false;
+		game.paused = false;
 		
-        game.update_display();
+		game.update_display();
 
-        game.begin_turn(false);
+		game.begin_turn(false);
+		
 	};
+	
+	game.resetGame = function() {
+		console.log("Lost");
+		game.playerWins=0;
+		game.compWins=0;
+		game.deck = new Deck();
+		game.player = new Player();
+		game.computer = new Player();
+		game.paused = false;	
+		game.update_display();
+		game.begin_turn(false);
+		
+	};
+	
+	game.checkEnd = function() {
+		if (this.compWins==4){
+			$.colorbox({
+					href:"./images/lostlost.png",
+					onClosed: game.resetGame,
+					title:"YOU LOST THE GAME!!"
+			});
+		}
+		else if(this.playerWins==4) {
+			$.colorbox({
+					href:"./images/wonwon.png",
+					onClosed: game.resetGame,
+					title:"YOU WON THE GAME!!"
+			});
+		}
+		else{
+			return;
+		}
+	}
 
 	game.deckEmpty = function(){
 		$.growl.warning({ title: "DECK EMPTY", message: "There are no more cards left", location: "br" });
@@ -191,7 +233,6 @@ $( function() {
         game.paused = false;
 	};
 	
-
 	game.guessCard = function(card) {
 		console.log("Guess a "+card);
 		$.colorbox.close();
@@ -608,7 +649,7 @@ $( function() {
 		$.colorbox({
 					href:"./images/lose.jpg",
 					onClosed: game.reset,
-					title:"YOU LOSE!!"
+					title:"You have lost this round"
 		});
 
 	}
@@ -618,7 +659,7 @@ $( function() {
 		$.colorbox({
 					href:"./images/won.jpg",
 					onClosed: game.reset,
-					title:"YOU WIN!!"
+					title:"You have won this round"
 		});		
 
 	}

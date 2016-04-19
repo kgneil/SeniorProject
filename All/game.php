@@ -20,7 +20,10 @@
 	
 		<header id="head">
 			<h1>Love Letter</h1>
-			<i class="fa fa-minus" aria-hidden="true"></i>
+			<div class="Menu">
+			<i class="fa fa-plus" aria-hidden="true"></i>
+			
+			</div>
 			
 		</header>
 		<body>
@@ -63,11 +66,11 @@
 			</div>
 			
 			<div class="referenceCard">
-				<img src="images/ReferenceCard.jpg" alt="Reference Card"/></li>
+				<img src="images/ListOfCards.png" alt="Reference Card"/></li>
 			</div>
 			</div>
 		
-		<footer>&copy; <?php echo date("Y"); ?> Kelsey Neil Senior Project</footer>
+		<footer>Kelsey Neil Senior Project</footer>
 		</div>
 	</body>
 </html>
