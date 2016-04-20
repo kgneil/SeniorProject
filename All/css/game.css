@@ -113,7 +113,7 @@ ul.UK {
     height: 230px;
     width: 180px;
     float: left;
-    margin-right: 12px;
+    margin-right: 40px;
     text-align: left;
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
@@ -188,12 +188,12 @@ ul.UK {
 }
 .hand {
     height: 245px;
-    width: 405px;
+    width: 450px;
     margin: 0px;
     margin-bottom: 0px;
 }
 .guesses{
-    height: 480px;
+    height: 460px;
     width: 220px;
     text-align: center;
     padding: 40px;
@@ -251,6 +251,7 @@ ul.tokens {
     float: right;
     top: 0;
     margin-bottom: 5px;
+	margin-right: 10px;
     overflow: hidden;
 }
 .justPlayed {
@@ -285,7 +286,7 @@ ul.tokens {
   -moz-border-radius: 28;
   border-radius: 28px;
   color: #c7c3c7;
-  font-size: 25px;
+  font-size: 20px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
@@ -306,18 +307,7 @@ ul.tokens {
     height: 820px;
     width: 1160px;
 }
-#forms {
-    padding: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 625px;
-    width: 320px;
-    overflow: auto;
-}
-#forms div {
-    margin: 20px 0px;
-    text-align: center;
-}
+
 button {
     border: none;
     color: inherit;
@@ -345,15 +335,15 @@ button {
     top: 20px;
 }
 .handmaid{
-	top: -40%;
-	margin-right: 20px;
+	top: -45%;
+	margin-right: 100px;
 	float: right;
 	position: relative;
 	display: inline;
 	
 }
 i.fa.fa-shield {
-	font-size: 60;
+	font-size: 120;
 	color: #B6B6B6;
 	display: inline;
 	
@@ -381,6 +371,7 @@ a {
 }
 
 /* user menu settings */
+/*http://blog.teamtreehouse.com/stylish-custom-user-settings-dropdown-menu-with-css */
 #dropdown { 
   display: block;
   padding: 13px 16px;

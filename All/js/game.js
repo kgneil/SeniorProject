@@ -188,7 +188,6 @@ $(function() {
 
 	//To start the computer's turn and chooses what card the computer must play
 	game.computer_turn = function() {
-
 		game.computer.handmaid = false;
 		game.playerTurn = false;
 		var cardDrawn = game.computer.drawCard();
@@ -196,7 +195,9 @@ $(function() {
 			game.update_display();
 			var hand = game.computer.hand;
 			var card;
+			//if the first card is countess
 			if (hand[0].point == 7) {
+				//second card is either a prince or a king
 				if (hand[1].point == 5 || hand[1].point == 6) {
 					card = hand[0];
 				} else if (hand[0].point < hand[1].point) {
@@ -204,7 +205,9 @@ $(function() {
 				} else {
 					card = hand[1];
 				}
+				//if the second card is a countess 
 			} else if (hand[1].point == 7) {
+				//checks to see if it is a prince or king
 				if (hand[0].point == 5 || hand[0].point == 6) {
 					card = hand[1];
 				} else if (hand[0].point < hand[1].point) {
@@ -212,6 +215,7 @@ $(function() {
 				} else {
 					card = hand[1];
 				}
+				//else just pick the card that is the lower card
 			} else if (hand[0].point < hand[1].point) {
 				card = hand[0];
 			} else {
@@ -220,7 +224,7 @@ $(function() {
 			var f = function() {
 				game.computer_play(card);
 			}
-			setTimeout(f, 3500);
+			setTimeout(f, 3000);
 		}
 
 	}
@@ -263,7 +267,6 @@ $(function() {
 					message: "The Computer has a " + card + "! You WON!!!!!",
 					location: "br"
 				});
-
 				setTimeout(game.win, game.COMPUTER_DELAY);
 			} else {
 				$.growl.error({
@@ -292,9 +295,9 @@ $(function() {
 					message: "You have an active handmaid",
 					location: "br"
 				});
-				setTimeout(game.begin_turn, 5000);
+				setTimeout(game.begin_turn, 3000);
 			} else {
-				setTimeout(game.begin_turn, 4000);
+				setTimeout(game.begin_turn, 3000);
 			}
 		}
 	};
@@ -333,6 +336,7 @@ $(function() {
 	};
 
 	//Applies a priest
+	//The priest just makes the other player look at their card
 	game.applyPriest = function() {
 
 		if (game.playerTurn == true) {
@@ -342,31 +346,33 @@ $(function() {
 					message: "Computer has a handmaid active.",
 					location: "br"
 				});
-				setTimeout(game.computer_turn, 4000);
+				setTimeout(game.computer_turn, 3000);
 			} else {
-				console.log("hello");
 				var f = function() {
 					game.showCard("Priest");
 				}
 				setTimeout(f, 1000);
-
-
 			}
 		} else {
+			$.growl.error({
+					title: "Baron",
+					message: "The computer just played a baron",
+					location: "br"
+				});
 			if (game.player.handmaid == true) {
 				$.growl.notice({
 					title: "Active Handmaid",
 					message: "You have a handmaid active.",
 					location: "br"
 				});
-				setTimeout(game.begin_turn, 5000);
+				setTimeout(game.begin_turn, 3000);
 			} else {
 				$.growl.error({
-					title: "SHOWED COMPUTER",
+					title: "Baron",
 					message: "You just showed your card to the computer",
 					location: "br"
 				});
-				setTimeout(game.begin_turn, 5000);
+				setTimeout(game.begin_turn, 3000);
 			}
 		}
 	};
@@ -376,23 +382,23 @@ $(function() {
 	game.showCard = function(card) {
 		game.display_hand("computer", true);
 		if (card == "Priest") {
-			setTimeout(game.computer_turn, 4000);
+			setTimeout(game.computer_turn, 3000);
 		} else {
 			if (game.playerTurn == true) {
 				if (game.computer.hand[0].point == game.player.hand[0].point) {
 					setTimeout(game.computer_turn, game.COMPUTER_DELAY);
 				} else if (game.computer.hand[0].point > game.player.hand[0].point) {
-					setTimeout(game.lose, game.COMPUTER_DELAY);
+					setTimeout(game.lose, 2500);
 				} else {
-					setTimeout(game.win, game.COMPUTER_DELAY);
+					setTimeout(game.win, 2500);
 				}
 			} else {
 				if (game.computer.hand[0].point == game.player.hand[0].point) {
-					setTimeout(game.begin_turn, 4000);
+					setTimeout(game.begin_turn, 3000);
 				} else if (game.computer.hand[0].point > game.player.hand[0].point) {
-					setTimeout(game.lose, 4000);
+					setTimeout(game.lose, 2500);
 				} else {
-					setTimeout(game.win, 4000);
+					setTimeout(game.win, 2500);
 				}
 			}
 
@@ -400,8 +406,8 @@ $(function() {
 	}
 
 	//Applies the baron
+	//Baron also calls show card and the players compare and the winner wins
 	game.applyBaron = function() {
-
 		if (game.playerTurn == true) {
 			if (game.computer.handmaid == true) {
 				$.growl.warning({
@@ -409,7 +415,7 @@ $(function() {
 					message: "The computer has an active handmaid",
 					location: "br"
 				});
-				setTimeout(game.computer_turn, 4000);
+				setTimeout(game.computer_turn, 3000);
 			} else {
 				var f = function() {
 					game.showCard("Baron");
@@ -417,13 +423,18 @@ $(function() {
 				setTimeout(f, 1000);
 			}
 		} else {
+			$.growl.warning({
+					title: "Baron",
+					message: "The computer has played a Baron",
+					location: "br"
+			});
 			if (game.player.handmaid == true) {
 				$.growl.notice({
 					title: "Handmaid",
 					message: "You have an active Handmaid",
 					location: "br"
 				});
-				setTimeout(game.begin_turn, 4000);
+				setTimeout(game.begin_turn, 3000);
 			} else {
 				$.growl.warning({
 					title: "Baron",
@@ -436,15 +447,13 @@ $(function() {
 				setTimeout(f, 1000);
 			}
 		}
-
-
 	}
 
 	//Applies the handmaid calling the player class and making a handmaid true
 	game.applyHandmaid = function() {
 		if (game.playerTurn == true) {
 			game.player.handmaid = true;
-			setTimeout(game.computer_turn, game.COMPUTER_DELAY);
+			setTimeout(game.computer_turn, 2000);
 		} else {
 			game.computer.handmaid = true;
 			$.growl.error({
@@ -452,7 +461,7 @@ $(function() {
 				message: "The computer has played a Handmaid",
 				location: "br"
 			});
-			setTimeout(game.begin_turn, 4000);
+			setTimeout(game.begin_turn, 2000);
 
 		}
 	}
@@ -572,6 +581,7 @@ $(function() {
 		}
 	}
 
+	//If the player is chose to be princed 
 	game.PlayerPrinced = function() {
 		$.colorbox.close();
 		if (game.player.handmaid == false) {
@@ -599,7 +609,8 @@ $(function() {
 
 		}
 	}
-
+	
+	//If the computer is picked to be princed
 	game.ComputerPrinced = function() {
 		$.colorbox.close();
 		var card = game.computer.hand[0];
@@ -764,6 +775,7 @@ $(function() {
 
 		game.display_unknown();
 	};
+	
 	game.lose = function() {
 		game.compWins = game.compWins + 1;
 		$.colorbox({
@@ -771,8 +783,8 @@ $(function() {
 			onClosed: game.reset,
 			title: "You have lost this round"
 		});
-
 	}
+	
 	game.win = function() {
 
 		game.playerWins = game.playerWins + 1;

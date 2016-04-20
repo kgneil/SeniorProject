@@ -21,7 +21,6 @@
 <header id="head">
 	<h1>Love Letter</h1>
 	<div class="Menu">
-
 		<div id="dropdown" class="ddmenu">
 			<i class="fa fa-plus" aria-hidden="true"></i>
 			<ul>
@@ -31,7 +30,6 @@
 				</li>
 			</ul>
 		</div>
-
 	</div>
 
 </header>
@@ -47,42 +45,29 @@
 						<div class="deckSize"></div>
 					</div>
 					<div class="unknown">
-						<h3>Unknown Cards</h3>
+						<h3>Removed Cards</h3>
 						<ul class="UK"></ul>
 					</div>
 
 				</div>
 				<div class="computerSpace">
 
-					<ul class="PlayedCards">
-
-					</ul>
-					<ul class="hand">
-					</ul>
+					<ul class="PlayedCards"></ul>
+					<ul class="hand"></ul>
 					<div class="handmaid"></div>
-					<ul class="tokens">
-					</ul>
-
-
+					<ul class="tokens"></ul>
 				</div>
 			</div>
+			
 			<div class="userSpace">
-				<ul class="PlayedCards">
-
-				</ul>
-				<ul class="hand">
-
-				</ul>
+				<ul class="PlayedCards"></ul>
+				<ul class="hand"></ul>
 				<div class="handmaid"></div>
-				<ul class="tokens">
-					Tokens
-				</ul>
-
+				<ul class="tokens">Tokens</ul>
 			</div>
 
 			<div class="referenceCard">
 				<img src="images/ListOfCards.png" alt="Reference Card" />
-				</li>
 			</div>
 		</div>
 
