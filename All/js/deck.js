@@ -6,10 +6,10 @@ function Deck() {
     
     this.init = function() {
         
-        var Guards = 5;
-        var Priests = 2;
-		var Barons = 2;
-		var Handmaid = 2;
+        var Guards = 0;
+        var Priests = 0;
+		var Barons = 0;
+		var Handmaid = 15;
 		var Prince = 2;
 		var King = 1;
 		var Countess = 1;

@@ -7,13 +7,12 @@ footer {
 }
 header>h1 {
     font-family: 'Homemade Apple', cursive;
+	font-size: 30pt;
+	height: 70px;
 }
 body {
     font-family: 'Merriweather', serif;
     background-color: #B3CEE8;
-}
-h1 {
-    font-size: 36pt;
 }
 h2,
 h1 {
@@ -215,7 +214,7 @@ ul.UK {
     margin: 0 auto;
     margin-top: 35px;
     margin-left: 35px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     display: inline-block;
     background-color: #901326;
     /* http://www.color-hex.com/color/4c0a14 */
@@ -236,7 +235,7 @@ ul.UK {
     margin: 0 auto;
     margin-left: 35px;
     margin-top: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 .tokens>li>img {
     float: left;
@@ -272,7 +271,8 @@ ul.tokens {
 }
 .computerSpace>.hand,
 .userSpace>.hand {
-    margin-top: 65px
+    margin-top: 65px;
+	margin-right: 0px;
 }
 .active{
   background: #04396C;
@@ -344,6 +344,20 @@ button {
     right: 15px;
     top: 20px;
 }
+.handmaid{
+	top: -40%;
+	margin-right: 20px;
+	float: right;
+	position: relative;
+	display: inline;
+	
+}
+i.fa.fa-shield {
+	font-size: 60;
+	color: #B6B6B6;
+	display: inline;
+	
+}
 .fa{
 	font-size: 32px;
 }
@@ -364,5 +378,57 @@ a {
 	margin: 5px;
 	color: #B6B6B6;
 	font-family: 'Merriweather', serif;
+}
+
+/* user menu settings */
+#dropdown { 
+  display: block;
+  padding: 13px 16px;
+  width: 266px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  background: #fff;
+  font-size: 1.55em;
+  color: #656565;
+  font-weight: normal;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+#dropdown:hover { color: #898989; }
+
+#dropdown.open {
+  background-color: #B3CEE8;
+  border-left: 4px solid #26527C;
+  color: #B6B6B6;
+}
+#dropdown {
+	width: 100px;
+	background: #B3CEE8;
+}
+#dropdown ul { 
+background: #26527C;
+  position: absolute;
+  top: 100%;
+  left: -4px; /* move content -4px because of container left border */
+  /*width: 266px;*/
+  padding: 5px 0px;
+  display: none;
+
+}
+#dropdown ul li { font-size: 0.3em; }
+
+#dropdown ul li a { 
+  text-decoration: none;
+  display: block;
+  color:  #B6B6B6;
+  padding: 7px 15px;
+}
+#dropdown ul li a:hover {
+  color: #6fa0e9;
+  background: #26527C;
 }
 .
