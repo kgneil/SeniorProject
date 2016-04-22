@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>Project Writeup</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Dancing+Script|Satisfy|Cookie|Pinyon+Script|Niconne|Homemade+Apple' rel='stylesheet' type='text/css'>
+
+	<style>
+	html,
+	body {
+	  overflow-x: hidden; /* Prevent scroll on narrow devices */
+	}
+	tr, td {
+		padding: 5px;
+		text-align: center;
+	
+	}
+	body {
+		background-color: #B3CEE8;
+		font-family: 'Merriweather', serif;
+		padding-top: 20px;
+		color: #04396C;
+	}
+	.jumbotron>h1 {
+		font-family: 'Homemade Apple', cursive;
+		font-size: 40pt;
+		height: 70px;
+	}
+	.jumbotron {
+		background-color: #04396C;
+		color: #B6B6B6;
+	
+	}
+	pre {
+		background-color: #D6E2F2;
+		border: 2px solid #04396C;
+		color: #04396C;
+	}
+	footer {
+	  padding: 30px 0;
+	}
+
+	@media screen and (max-width: 767px) {
+	  .row-offcanvas {
+		position: relative;
+		-webkit-transition: all .25s ease-out;
+			 -o-transition: all .25s ease-out;
+				transition: all .25s ease-out;
+	  }
+	 .list-group {
+			background-color: #D6E2F2;
+			color: #04396C;
+		}
+	  .row-offcanvas-right {
+		right: 0;
+	  }
+
+	  .row-offcanvas-left {
+		left: 0;
+	  }
+
+	  .row-offcanvas-right
+	  .sidebar-offcanvas {
+		right: -50%; /* 6 columns */
+		
+	  }
+
+	  .row-offcanvas-left
+	  .sidebar-offcanvas {
+		left: -50%; /* 6 columns */
+	  }
+
+	  .row-offcanvas-right.active {
+		right: 50%; /* 6 columns */
+	  }
+
+	  .row-offcanvas-left.active {
+		left: 50%; /* 6 columns */
+	  }
+
+	  .sidebar-offcanvas {
+		background-color: #D6E2F2;
+		color: #04396C;
+		position: fixed;
+		top: 0;
+		right:0
+		width: 50%; /* 6 columns */
+	  }
+	  
+
+	}
+	</style>
+	
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <h1>Love Letter AI</h1>
+            <p>A web application that allows users to play full games of Love Letter against a computer AI.</p>
+			<hr>
+          </div>
+          <div class="row">
+            <h2 id="head_1">1. Introduction</h1>
+			<p>About a year and a half ago I was introduced to many different card games. One that I instantly fell in love with was 
+			Love Letter. Love letter is a game that involves chance, memory, and risk. To play this game each player is dealt one card 
+			and then another on their turn. There are 16 cards total and each card has a special way it can be used and a point value.
+			The whole objective is to either eliminate people using the special instructions of each card or be that last one left with 
+			the highest point valued card. The fact that each turn and all the different possibilities of each card I thought it would be
+			very interesting to make a two player game using web programming languages.
+			</p>
+			
+			<h2 id="head_2">2 Project Goals</h2>
+			<p>
+				My original goals for this project are:
+				<ul>
+					<li>Create a two player game of Love Letter</li>
+					<li>Integrate an AI that can make possible and smart plays</li>
+					<li>Use different web based languages</li>
+					<li>Use different object oriented design patters</li>
+					<li>Create a database of users</li>
+					<li>Save each game and load a game</li>
+					<li>Main menu</li>
+				</ul>
+			</p>
+			
+			<h3 id="head_3">2.1 Accomplishments</h3>
+			<p>
+				I was able to implement most of these goals however due to time I was unable to create a database and found that there really was no need 
+				to save and load each game. 
+			</p>
+			<p>
+				The hardest goal and the longest goal that I worked on was just implementing each cards. Each week I would try to implement one of the cards
+				and most of the time I would have to go back and change other code that was already there. Since each of the cards did different things it made 
+				it very difficult to reuse code or implement more of a design pattern. Most of the logic of each card is in the game.js file and uses information
+				from the player.js file. One thing I really wanted to do was put some of the card logic in the player file or the card file but the only common file 
+				that could hold the hands of both the players was the game.js file. 
+			</p>
+			<p>
+				Another goal that seemed to be challenging was dealing with the rules. The rules that dealt with the setup of the game took me most of the beginning weeks.
+				Again the CSS proved to take most of my time especially with that. For example the way the cards were dealt and having the just played cards show how I wanted 
+				them to show. 
+			</p>
+			
+			<h2 id="head_4">3 Skills</h2>
+			<p>
+				A big portion of my project is JavaScript, PHP and CSS. JavaScript is what drives the logic of the game and how it works. 
+			</p>
+			<p>
+				This project definitely improved my JavaScript skills. Thinking through things logically was a big portion of me mapping out problem sets. Since each of the cards
+				do different things it was important to understand how to make the logic work and effect other cards. 
+			</p>
+			<p>
+				Since I did not choose to use bootstrap, one of the major problems that I spent a lot of time dealing with was CSS. CSS was found to be more annoying and it would 
+				often take a lot of time to figure out what needed to be changed to look like what it is now. Dealing with jQuery was also a major portion of the annoyance of CSS. 
+				One thing that took me a week was being able to flip the card so the user can see what the computer has. There was a problem with the library of jQuery I was using 
+				and one of my functions was interfering with the call to show the card. 
+			</p>
+			<h2 id="head_5">4 Implementation</h2>
+			<p>
+				My project relies heavily with in 4 major JavaScript files: game.js, player.js, card.js, deck.js. However I decided instead of trying to do something all at once
+				I was going to do it in phases. 
+			</p>
+			<h4> Phase 1: The Set Up</h4>
+			<p>
+				I set up my game.php file with my game.js and have my game.css file all set. This was not too bad since last year I took advanced web and used a skeleton of all those files.
+				This also includes how I prototype my cards. I was able to create the Guards cards at this time but not have them functioning. This phase was all about the set up and how I
+				would create the players and deal the cards. The deck file was where the cards were actually created into the game.The biggest time consuming part of this phase was the css.
+			</p>
+			<h4> Phase 2: The Game</h4>
+			<p>
+				I was able to create my cards in a fairly simple way which involve prototypes. Here is an example of how I create the guards:
+			</p>
+			<pre>
+			<code>
+//Constructor function
+function Card(id, point) { 
+	this.id = id; 
+	this.point = point; 
+}; 
+ 
+function GuardCard(id, point) { 
+	Card.call(this, id, point); 
+	this.id=id; 
+	this.type = "Guard"; 
+}; 
+
+//Sets the guardCard prototype to cards constructor
+GuardCard.prototype = Object.create(Card.prototype); 
+GuardCard.prototype.constructor = GuardCard; 
+
+//The game description of each card
+GuardCard.prototype.description = function() { 
+	return "Name a non-Guard card, if that player has that card, he or she is out of the round."; 
+} 
+
+//Called when displaying the cards in the game.js update_display function
+GuardCard.prototype.template = function() { 
+	var template =  "&lt;li&gt;" + 
+		"&lt;div class="card" data-id="' + this.id + '"&gt;" + 
+		'&lt;h4&gt;1&lt;/h4&gt;' +  
+		'&lt;header&gt;' + this.type + '&lt;/header&gt;' + 
+		'&lt;img src="./images/GuardPerson.png" alt="Guard"&gt;' + 
+		'&lt;p class="desc"&gt;' + this.description() + '&lt;/p&gt;' + 
+		'&lt;/div&gt;' + 
+		'&lt;/li&gt;'; 
+	return template; 
+}
+			</code>
+			</pre>
+			<p>
+				All of the logic of the cards however would be in the game.js file. So each week for roughly 10 week I would implement
+				one or two cards and add in the new stuff. Each week I would have to go back and add new stuff that applies to that card.
+				I decided to go in order on their point values. So I had Guard and Priest done first. This allowed me to really make sure
+				that what I was working on was working properly. It was also at this time that I had to work on the logic of the AI. This 
+				was all so difficult because in certain cases I would implement a card and it would get all messed up. For example when I 
+				had to bring in the logic of the handmaid and the countess my whole game logic had to be reconsidered and extremely time
+				consuming. 
+			
+			</p>
+			<p>
+				Each week I also had to add new attributes to the players. This took time and most of it was week by week. I would only add
+				in the logic as I went with the new card that was being implemented. 			
+			</p>
+			<h4> Phase 3: The AI</h4>
+			<p>
+				At first just to keep things moving along I did not do much to the logic of the AI. I did have it playing back but the only 
+				real rule they would play by was to play the lower card. Which still is somewhat the case. The computer only had one way to 
+				do everything and no real rules applied such as the countess. So once I was done with all the cards I was able to really play
+				around with the decisions the AI could make. One of the first things I tackled were making smart guesses when played a guard.
+				This I had to do in the Deck file and pass it to the player file which then gave it to the game file. So now when the computer
+				plays a guard it will only guess cards that are not played yet. Much like how we guess. The other thing that was challenging
+				was having the AI play by the rules which is now mostly in the game.js file. 
+			</p>
+			<h4> Phase 4: The End</h4>
+			<p>
+				Once I got everything working I had to test certain things and found lots of bugs. But since I was easily able to stack the deck
+				as I wanted it was easier than I thought. 
+			</p>
+			
+			<h3 id="head_6">4.1 Structure</h3>
+			<p>
+				As I mentioned before my project relies heavily with in 4 major JavaScript files: game.js, player.js, card.js, deck.js. One of my major goals were to make it so my code was reusable and I 
+				did this by dividing up the logic so that each file dealt with basically one thing. 
+			</p>
+			<p>
+				<a href="http://imgur.com/Zan03lX"><img src="http://imgur.com/DRdVwxq.png" title="source: imgur.com" /></a>
+				
+			</p>
+			<h2 id="head_7">5 The Game</h2>
+				To play the game there are a lot of rules and very specific rules so here is a link: <a href="http://www.alderac.com/tempest/files/2012/09/Love_Letter_Rules_Final.pdf">Love Letter Rules</a>. 
+				In this write up however I will briefly explain the concept of a two player game.
+				
+				First you start off with a deck which consist of 16 cards and of those there are 8 different possible cards:
+				<table border="1" style="width:75%; margin:10px;">
+				  <tr>
+					<td>Card Name</td>
+					<td>Point Value</td> 
+					<td># of cards per deck</td>
+					<td>Description</td>
+				  </tr>
+				  <tr>
+					<td>Guard</td>
+					<td>1</td> 
+					<td>5</td>
+					<td>Name a non-Guard card and choose a player, if that player has that card, he or she is out of the round.</td>
+				  </tr>
+				   <tr>
+					<td>Priest</td>
+					<td>2</td> 
+					<td>2</td>
+					<td>Look at another player's hand.</td>
+				  </tr>
+				   <tr>
+					<td>Baron</td>
+					<td>3</td> 
+					<td>2</td>
+					<td>You and another player secretly compare hands. The player with the lower value looses</td>
+				  </tr>
+				   <tr>
+					<td>Handmaid</td>
+					<td>4</td> 
+					<td>2</td>
+					<td>Until your next turn, ignore all effects from other players' cards</td>
+				  </tr>
+				   <tr>
+					<td>Prince</td>
+					<td>5</td> 
+					<td>2</td>
+					<td>Choose any player (including yourself) to discard his or her hand and draw a new card.</td>
+				  </tr>
+				   <tr>
+					<td>King</td>
+					<td>6</td> 
+					<td>1</td>
+					<td>Trade Hands with another player</td>
+				  </tr>
+				   <tr>
+					<td>Countess</td>
+					<td>7</td> 
+					<td>1</td>
+					<td>If you have this card and the King or Prince in your hand, you must discard this card</td>
+				  </tr>
+				   <tr>
+					<td>Princess</td>
+					<td>8</td> 
+					<td>1</td>
+					<td>If you discard this card, you lose.</td>
+				  </tr>
+				</table>
+				
+				<p>
+				The way the game starts is that 4 cards are automatically taken out of the deck, 3 of those cards are displayed
+				while the other one is hidden and you cannot see what it is. Then the deck deals a card to you and the computer.
+				I have programmed it so that the user always starts first. So one every turn you are dealt another card. The user
+				then must choose a card to play and depending on the card the game may keep going. It goes back and forth until 
+				a card is used to win or the deck is empty.
+				</p>
+				<p>
+				If the deck is empty the user and the computer then compare cards and the card with the higher point value wins a token of affection
+				but if the cards are equal then it goes to a tie breaker. The tie breaker will add up the played cards value of 
+				each player and the player with the higher value wins a token of affection.
+				</p>
+				<p>
+				Once a player reaches 4 tokens of affection they win the whole game and then the game will be restarted.
+				</p>
+
+			
+			<h3 id="head_8">5.1 Screenshots</h2>
+				<a href="http://imgur.com/JViEpRM"><img src="http://i.imgur.com/JViEpRM.png" title="source: imgur.com" style="border:3px solid white; margin: 10px;" /></a>
+				<a href="http://imgur.com/qfymcUm"><img src="http://i.imgur.com/qfymcUm.png" title="source: imgur.com"  style="border:3px solid white; margin: 10px;"/></a>
+				<a href="http://imgur.com/eljgGNp"><img src="http://i.imgur.com/eljgGNp.png" title="source: imgur.com"  style="border:3px solid white; margin: 10px;"/></a>
+			
+			
+			<h2 id="head_9">6 Conclusion</h2>
+			<p>
+				In conclusion I am very proud of my accomplishments and the final product. There are definitely things that I would like to improve on but 
+				that involves time. I would really like to improve on the game logic
+			</p>
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" style="position: fixed; top: 75px; right:50px">
+          <div class="list-group" style="background-color: #D6E2F2;">
+            <a id="link_1" class="list-group-item active">1. Introduction</a>
+            <a id="link_2" class="list-group-item">2 Project Goals</a>
+            <a id="link_3" class="list-group-item">&nbsp 2.1 Accomplishments</a>
+            <a id="link_4" class="list-group-item">3 Skills</a>
+            <a id="link_5" class="list-group-item">4 Implementaion</a>
+            <a id="link_6" class="list-group-item">&nbsp 4.1 Structure</a>
+            <a id="link_7" class="list-group-item">5 The Game</a>
+            <a id="link_8" class="list-group-item">&nbsp 5.1 Screenshots</a>
+            <a id="link_9" class="list-group-item">6 Conclusion</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Kelsey Neil.</p>
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script>
+		$(document).ready(function (){
+			$("#link_1").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_1").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_1").addClass('active');});
+			$("#link_2").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_2").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_2").addClass('active');});
+			$("#link_3").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_3").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_3").addClass('active');});
+			$("#link_4").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_4").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_4").addClass('active');});
+			$("#link_5").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_5").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_5").addClass('active');});
+			$("#link_6").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_6").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_6").addClass('active');});
+			$("#link_7").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_7").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_7").addClass('active');});
+			$("#link_8").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_8").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_8").addClass('active');});
+			$("#link_9").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_9").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_9").addClass('active');});
+			$("#link_10").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_10").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_10").addClass('active');});
+			$("#link_11").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_11").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_11").addClass('active');
+			});
+        });
+	</script>
+  </body>
+</html>
