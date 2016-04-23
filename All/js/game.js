@@ -18,7 +18,7 @@ $(function() {
 
 		$("#dropdown").on("click", function(e) {
 			e.preventDefault();
-			console.log(this);
+			//console.log(this);
 			if ($(this).hasClass("open")) {
 				$(this).removeClass("open");
 				$(this).children("ul").slideUp("fast");
@@ -66,13 +66,9 @@ $(function() {
 		game.deck = new Deck();
 		game.player = new Player();
 		game.computer = new Player();
-
 		game.paused = false;
-
 		game.update_display();
-
 		game.begin_turn(false);
-
 	};
 
 	//Resets the game after someone has 4 tokens
@@ -86,7 +82,6 @@ $(function() {
 		game.paused = false;
 		game.update_display();
 		game.begin_turn(false);
-
 	};
 
 	//Checks to see if someone has 4 tokens after every win
@@ -115,6 +110,7 @@ $(function() {
 			message: "There are no more cards left",
 			location: "br"
 		});
+		
 		var compCard = game.computer.hand;
 		var playCard = game.player.hand;
 		if (compCard[0].point < playCard[0].point) {
@@ -123,14 +119,14 @@ $(function() {
 				message: "You have a higher Card",
 				location: "br"
 			});
-			setTimeout(game.win, game.COMPUTER_DELAY);
+			game.win();
 		} else if (compCard[0].point > playCard[0].point) {
 			$.growl.error({
 				title: "DECK EMPTY",
 				message: "The computer has a higher Card",
 				location: "br"
 			});
-			setTimeout(game.lose, game.COMPUTER_DELAY);
+			game.lose();
 		} else if (compCard[0].point == playCard[0].point) {
 			$.growl.warning({
 				title: "TIE BREAKER",
@@ -194,39 +190,41 @@ $(function() {
 		if (cardDrawn) {
 			game.update_display();
 			var hand = game.computer.hand;
+			var card1 = hand[0];
+			var card2 = hand[1];
 			var card;
 			//if the first card is countess
-			if (hand[0].point == 7) {
+			if (card1.point == 7) {
 				//second card is either a prince or a king
-				if (hand[1].point == 5 || hand[1].point == 6) {
-					card = hand[0];
-				} else if (hand[0].point < hand[1].point) {
-					card = hand[0];
+				if (card2.point == 5 || card2.point == 6) {
+					card = card1;
+				} else if (card1.point < card2.point) {
+					card = card1;
 				} else {
-					card = hand[1];
+					card = card2;
 				}
-				//if the second card is a countess 
-			} else if (hand[1].point == 7) {
+			//if the second card is a countess 
+			} else if (card2.point == 7) {
 				//checks to see if it is a prince or king
-				if (hand[0].point == 5 || hand[0].point == 6) {
-					card = hand[1];
-				} else if (hand[0].point < hand[1].point) {
-					card = hand[0];
+				if (card1.point == 5 || card1.point == 6) {
+					card = card2;
+				} else if (card1.point < card2.point) {
+					card = card1;
 				} else {
-					card = hand[1];
+					card = card2;
 				}
-				//else just pick the card that is the lower card
-			} else if (hand[0].point < hand[1].point) {
-				card = hand[0];
+			//else just pick the card that is the lower card
+			} else if (card1.point < card2.point) {
+				card = card1;
 			} else {
-				card = hand[1];
+				card = card2;
 			}
+			
 			var f = function() {
 				game.computer_play(card);
 			}
 			setTimeout(f, 3000);
 		}
-
 	}
 
 	//computer card that they chose to play
@@ -258,7 +256,7 @@ $(function() {
 
 	//Logic of when a guard is used and checks eachothers hand
 	game.guessCard = function(card) {
-		console.log("Guess a " + card);
+		//console.log("Guess a " + card);
 		$.colorbox.close();
 		if (game.playerTurn == true) {
 			if (game.computer.hand[0].type == card && game.computer.handmaid == false) {
@@ -268,7 +266,15 @@ $(function() {
 					location: "br"
 				});
 				setTimeout(game.win, game.COMPUTER_DELAY);
-			} else {
+			} else if (game.computer.handmaid === true) {
+				$.growl.warning({
+					title: "ACTIVE HANDMAID",
+					message: "The Computer has an active handmaid.",
+					location: "br"
+				});
+				setTimeout(game.computer_turn, game.COMPUTER_DELAY);
+			}
+			else {
 				$.growl.error({
 					title: "Guard",
 					message: "The Computer does not have a " + card + "!",
@@ -289,15 +295,15 @@ $(function() {
 					location: "br"
 				});
 				setTimeout(game.lose, game.COMPUTER_DELAY);
-			} else if (game.player.handmaid == true) {
+			} else if (game.player.handmaid === true) {
 				$.growl.notice({
 					title: "Active Handmaid",
 					message: "You have an active handmaid",
 					location: "br"
 				});
-				setTimeout(game.begin_turn, 3000);
+				setTimeout(game.begin_turn, 4000);
 			} else {
-				setTimeout(game.begin_turn, 3000);
+				setTimeout(game.begin_turn, 4000);
 			}
 		}
 	};
@@ -355,8 +361,8 @@ $(function() {
 			}
 		} else {
 			$.growl.error({
-					title: "Baron",
-					message: "The computer just played a baron",
+					title: "Priest",
+					message: "The computer just played a Priest",
 					location: "br"
 				});
 			if (game.player.handmaid == true) {
@@ -368,7 +374,7 @@ $(function() {
 				setTimeout(game.begin_turn, 3000);
 			} else {
 				$.growl.error({
-					title: "Baron",
+					title: "Priest",
 					message: "You just showed your card to the computer",
 					location: "br"
 				});
@@ -642,14 +648,7 @@ $(function() {
 		var $deck = $(".deck .deckSize");
 		$deck.empty();
 		var deckSize;
-
-		if (game.deck.deckSize() <= game.deck.deckSize()) {
-
-			deckSize = game.deck.deckSize();
-		} else {
-			deckSize = game.deck.deckSize();
-		}
-
+		deckSize = game.deck.deckSize();
 		$deck.append('<h3>Cards Left: ' + deckSize + '</h3>');
 	};
 
@@ -691,10 +690,10 @@ $(function() {
 			for (i = 0; i < hand.length; i++) {
 				if (show == true) {
 					$hand.html(hand[i].template());
-					console.log(hand[i]);
+					//console.log(hand[i]);
 				} else {
-					//$hand.append('<li><img src="./images/backgroundCard.jpg" alt="Card Back"/></li>');
-					$hand.append(hand[i].template());
+					$hand.append('<li><img src="./images/backgroundCard.jpg" alt="Card Back"/></li>');
+					//$hand.append(hand[i].template());
 
 				}
 			}

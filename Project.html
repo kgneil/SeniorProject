@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>Project Writeup</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Dancing+Script|Satisfy|Cookie|Pinyon+Script|Niconne|Homemade+Apple' rel='stylesheet' type='text/css'>
+
+	<style>
+	html,
+	body {
+	  overflow-x: hidden; /* Prevent scroll on narrow devices */
+	}
+	tr, td {
+		padding: 5px;
+		text-align: center;
+	
+	}
+	body {
+		background-color: #B3CEE8;
+		font-family: 'Merriweather', serif;
+		padding-top: 20px;
+		color: #04396C;
+	}
+	.jumbotron>h1 {
+		font-family: 'Homemade Apple', cursive;
+		font-size: 40pt;
+		height: 70px;
+	}
+	.jumbotron {
+		background-color: #04396C;
+		color: #B6B6B6;
+	
+	}
+	pre {
+		background-color: #D6E2F2;
+		border: 2px solid #04396C;
+		color: #04396C;
+	}
+	footer {
+	  padding: 30px 0;
+	}
+
+	@media screen and (max-width: 767px) {
+	  .row-offcanvas {
+		position: relative;
+		-webkit-transition: all .25s ease-out;
+			 -o-transition: all .25s ease-out;
+				transition: all .25s ease-out;
+	  }
+	 .list-group {
+			background-color: #D6E2F2;
+			color: #04396C;
+		}
+	  .row-offcanvas-right {
+		right: 0;
+	  }
+
+	  .row-offcanvas-left {
+		left: 0;
+	  }
+
+	  .row-offcanvas-right
+	  .sidebar-offcanvas {
+		right: -50%; /* 6 columns */
+		
+	  }
+
+	  .row-offcanvas-left
+	  .sidebar-offcanvas {
+		left: -50%; /* 6 columns */
+	  }
+
+	  .row-offcanvas-right.active {
+		right: 50%; /* 6 columns */
+	  }
+
+	  .row-offcanvas-left.active {
+		left: 50%; /* 6 columns */
+	  }
+
+	  .sidebar-offcanvas {
+		background-color: #D6E2F2;
+		color: #04396C;
+		position: fixed;
+		top: 0;
+		right:0
+		width: 50%; /* 6 columns */
+	  }
+	  
+
+	}
+	</style>
+	
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <h1>Love Letter Project Page</h1>
+            <p><a href="http://turing.plymouth.edu/~kgneil/LoveLetter/game.php">Kelsey's Senior Project Page Link</a></p>
+			<hr>
+          </div>
+          <div class="row">
+            <h2 id="head_1">1 Problem Statement</h1>
+			<p>Love Letter is a card game that can be played with 2-4 players. I would be creating a Love Letter web based game that includes the use of Artificial Intelligence.
+			</p>
+			
+			<h2 id="head_2">2 Problem Description</h2>
+			<p>
+				Over the past year I found a love for card games. Love letter is a game that involves chance, memory, and risk. To play this game each player is dealt two cards. There are 16 cards total and each card has a special way it can be used and a point value. The whole objective is to either eliminate people using the special instructions of each card or be that last one left with the highest point valued card. Each turn has many different possibilities which is why creating an AI would be both challenging and fun.
+			</p>
+			
+			<h2 id="head_3">3 Project Goals</h2>
+			<p>
+				My original goals for this project are:
+				<ul>
+					<li>Create a two player game of Love Letter</li>
+					<li>Integrate an AI that can make possible and smart plays</li>
+					<li>Use different web based languages</li>
+					<li>Use different object oriented design patterns</li>
+					<li>Create a database of users</li>
+					<li>Save each game and load a game</li>
+					<li>Main menu</li>
+				</ul>
+			</p>
+			
+			<h2 id="head_4">4 Project Scope</h2>
+			<p>
+				In order to create this game using web languages I will be using HTML and CSS to set up the pages. Java script will be used for the interaction and driving force behind how the game will actually play. PHP will be used for the sever side and will help with the cross platform applications. For my database I will be using MYSQL. 
+			</p>
+			
+			<h2 id="head_5">5 Success Factors and Benefits</h2>
+			<p>
+				My ultimate goal is take what I learned from advanced web programming and software Engineering and blend those two classes. I created a game in Advanced Web but I would like to apply the knowledge and skills of good programming practices and object oriented design pattern. I believe my success should be measured on my effort and how well the game plays out. The benefits is that I get to apply my knowledge from one class and apply it on something separate. I also think that the professors of these classes might be able to include some of the things I do into their curriculum.
+			</p>
+
+			<h2 id="head_6">6 Timeline</h2>
+			<table border="1" style="width:75%; margin:10px;">
+				  <tbody>
+					<tr>
+					  <td><strong>Week</strong></td>
+					  <td><strong>Dates</strong></td>
+					  <td><strong>Goal</strong></td>
+					</tr>
+					<tr>
+					  <td>1</td>
+					  <td>1/24-1/30</td>
+					  <td>Set up Git and Github so that it can be monitored each week my progress. Add the CSS and my basic HTML</td>
+					</tr>
+					<tr>
+					  <td>2</td>
+					  <td>1/31-2/6</td>
+					  <td>Render two of the sets of cards. Start with the Guards and Priest. </td>
+					</tr>
+					<tr>
+					  <td>3</td>
+					  <td>2/7-2/13</td>
+					  <td>Have the Guard card working so that the user can guess whether or not the computer has one of the priest. Make a winning case as well.</td>
+					</tr>
+					<tr>
+					  <td>4</td>
+					  <td>2/14-2/20</td>
+					  <td>Hopefully making it so that the Computer maybe able to play back the guard or the priest working properly. Always play the guard if thats what the computer has.</td>
+					</tr>
+					<tr>
+					  <td>5</td>
+					  <td>2/21-2/27</td>
+					  <td>Having the priest able to be played. Maybe having it flip over or have a colorbox show up. Have the computer to be able to pick what card to play back</td>
+					</tr>
+					<tr>
+					  <td>6</td>
+					  <td>2/28-3-5</td>
+					  <td>Just played cards fully functioning and adding up in the player file. Also make the baron a workable card</td>
+					</tr>
+					<tr>
+					  <td>7</td>
+					  <td>3/6-3/12</td>
+					  <td>Add in the handmaid and have it effect the other cards in the way that it works</td>
+					</tr>
+					<tr>
+					  <td>8</td>
+					  <td>3/13-3/19</td>
+					  <td>Spring break. Will not be working on Senior Project. Sorry:(</td>
+					</tr>
+					<tr>
+					  <td>9</td>
+					  <td>3/20-3/26</td>
+					  <td>Have the prince and king working properly</td>
+					</tr>
+					<tr>
+					  <td>10</td>
+					  <td>3/27-4/2</td>
+					  <td>Just get the countess working. And lastly add in the princess</td>
+					</tr>
+					<tr>
+					  <td>11</td>
+					  <td>4/3-4/9</td>
+					  <td>Create smart guesses for the computer and have it playing really smart</td>
+					</tr>
+					<tr>
+					  <td>12</td>
+					  <td>4/10-4/16</td>
+					  <td>Stretch Goals</td>
+					</tr>
+					<tr>
+					  <td>13</td>
+					  <td>4/17-4/23</td>
+					  <td>Stretch Goals</td>
+					</tr>
+					<tr>
+					  <td>14</td>
+					  <td>4/24-4/30</td>
+					  <td>Have it completed and finishing touches</td>
+					</tr>
+				  </tbody>
+				</table>
+
+			
+			<h2 id="head_7">7 Stakeholders</h2>
+			<p>
+				People who enjoy card games.
+			</p>
+			
+			<h2 id="head_8">8 Assumptions</h2>
+			<p>
+				I am hopeful that I will not have any issues with the setting up of the initial game. I plan on running into issues when it comes to the actual game logic and structure of the logic. I will need to look further into json and jquery. Implementing the database may also be a little difficult. I really hope to make this project as clean as possible but I know there are going to be many problems when it comes to actually creating the AI part. I also am a little worried on running it on different web browsers which is something I will keep in mind from the beginning.
+			</p>
+			
+			<h3 id="head_9">9 Limitations/Restrictions</h2>
+			<p>
+			If I run into any huge issue especially web wise I have plenty of resources. I am more worried about the logic behind the AI but I plan on doing a ton of research.
+			</p>
+			
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" style="position: fixed; top: 75px; right:50px">
+          <div class="list-group" style="background-color: #D6E2F2;">
+            <a id="link_1" class="list-group-item active">1. Problem Statement</a>
+            <a id="link_2" class="list-group-item">2 Problem Description</a>
+            <a id="link_3" class="list-group-item">3 Project Goals</a>
+            <a id="link_4" class="list-group-item">4 Project Scope</a>
+            <a id="link_5" class="list-group-item">5 Success Factors and Benefits</a>
+            <a id="link_6" class="list-group-item">6 Timeline</a>
+            <a id="link_7" class="list-group-item">7 Stakeholders</a>
+            <a id="link_8" class="list-group-item">8 Assumptions</a>
+            <a id="link_9" class="list-group-item">9 Limitations</a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Kelsey Neil.</p>
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script>
+		$(document).ready(function (){
+			$("#link_1").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_1").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_1").addClass('active');});
+			$("#link_2").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_2").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_2").addClass('active');});
+			$("#link_3").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_3").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_3").addClass('active');});
+			$("#link_4").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_4").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_4").addClass('active');});
+			$("#link_5").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_5").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_5").addClass('active');});
+			$("#link_6").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_6").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_6").addClass('active');});
+			$("#link_7").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_7").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_7").addClass('active');});
+			$("#link_8").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_8").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_8").addClass('active');});
+			$("#link_9").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_9").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_9").addClass('active');});
+			$("#link_10").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_10").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_10").addClass('active');});
+			$("#link_11").click(function (){
+			$('html, body').animate({
+				scrollTop: $("#head_11").offset().top
+				
+			}, 1000);
+			$("#link_11").removeClass('active');
+				$("#link_1").removeClass('active');
+				$("#link_2").removeClass('active');
+				$("#link_3").removeClass('active');
+				$("#link_4").removeClass('active');
+				$("#link_5").removeClass('active');
+				$("#link_6").removeClass('active');
+				$("#link_7").removeClass('active');
+				$("#link_8").removeClass('active');
+				$("#link_9").removeClass('active');
+				$("#link_10").removeClass('active');
+				$("#link_11").addClass('active');
+			});
+        });
+	</script>
+  </body>
+</html>

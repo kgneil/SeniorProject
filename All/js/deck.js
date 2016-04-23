@@ -59,10 +59,12 @@ function Deck() {
         this.shuffle();
     };
 	
+	//Gets hand each round
 	this.getHand = function(){
 		return this.deck.splice(0, 1);
 	}
 	
+	//This is used to debugg
 	this.print = function() {
 		console.log("DECK" );
 		var size = this.deck.length;
@@ -74,6 +76,7 @@ function Deck() {
 
 
     // Draw a card, return true if successful and false if no cards to draw
+	//Kept from Advance Web Class but altered it
     this.drawCard = function(player) {
 		//this.print();
         if (this.deck.length === 0) {
@@ -96,6 +99,7 @@ function Deck() {
 	
 	
     // Shuffle deck
+	//Kept from Advance Web Class
     this.shuffle = function() {  
       var currentIndex = this.deck.length, temporaryValue, randomIndex ;
       // While there remain elements to shuffle...
@@ -116,23 +120,43 @@ function Deck() {
 		this.unknown.push(this.deck.splice(0, 1));	
     };
 	
+	//Gets the one unknown card for when you play a prince last
 	this.getUnknown = function(){
 		//console.log(this.unknown[1]);
 		return this.unknown;
 	}
 	
+	//Adds all the unplayed cards into an array and returns it
 	this.computerGuess = function() {
 		var size = this.deck.length;
-		for (var i = 0; i < size; i++) {
-			if(this.deck[i].point==1){
-				//nothing
-			}
-			else{
-				this.computerGuesses.push(this.deck[i].point);
+		var userCard = game.player.hand[0].point;
+		//Empty the array before you add more into it
+		this.computerGuesses.splice(0,this.computerGuesses.length);
+		if(game.player.lastPlayed().type=="Countess"){
+			for (var i = 0; i < size; i++) {
+				if(this.deck[i].point==5 || this.deck[i].point==6){
+					this.computerGuesses.push(this.deck[i].point);
+				}
+				else{
+					//nothing
+				}
 			}
 		}
-		var userCard = game.player.hand[0].point;
-		this.computerGuesses.push(userCard);
+		else if(game.player.lastPlayed().type=="King"){
+			this.computerGuesses.push(userCard);
+		}
+		else{
+			for (var i = 0; i < size; i++) {
+				if(this.deck[i].point==1){
+					//nothing
+				}
+				else{
+					this.computerGuesses.push(this.deck[i].point);
+				}
+			}
+			this.computerGuesses.push(userCard);
+		}
+		this.computerGuesses.push(userCard);		
 		console.log(this.computerGuesses);
 		return this.computerGuesses;
 	}

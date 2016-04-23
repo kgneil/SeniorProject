@@ -53,10 +53,7 @@ function Player() {
 		var card = this.hand[0];
 		this.justPlayed.push(card);
 		this.hand.splice(0, 1);
-		console.log("Deck Length: "+game.deck.deck.length);
 		if(game.deck.deck.length==0){
-			console.log("this.hand[0] "+this.hand[0]);
-			console.log("UnknownCard "+ game.deck.unknown[0][0]);
 			this.hand[0]=game.deck.unknown[0][0];
 		}
 		else{ 
@@ -97,7 +94,6 @@ function Player() {
                 break;
             }
         }
-
         // If not found return false
         if (idx === -1) {
             return false;
@@ -107,6 +103,7 @@ function Player() {
 			if(playable){
 				this.hand.splice(idx, 1); // Remove card from hand
 				this.justPlayed.push(card);
+				//console.log(this.justPlayed);
 				return card;
 			}
 			else{
@@ -116,6 +113,7 @@ function Player() {
             
         }
     };
+	
 	
 	this.justPlayedTotal = function(){
 		var total = 0;
@@ -154,7 +152,12 @@ function Player() {
             game.applyPrincess();
         }
     };
-
+	
+	this.lastPlayed = function(){
+		var index = this.justPlayed.length-1;
+		console.log("Last Played: "+this.justPlayed[index]);
+		return this.justPlayed[index];
+	}
 
     this.init();
 };
