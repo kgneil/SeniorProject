@@ -56,6 +56,7 @@ function Deck() {
             this.deck.push(new PrincessCard(id, 8, 8)); 
         }
 
+
         this.shuffle();
     };
 	

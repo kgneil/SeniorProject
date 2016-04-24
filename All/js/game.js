@@ -16,15 +16,15 @@ $(function() {
 
 	game.init = function() {
 
-		$("#dropdown").on("click", function(e) {
+		$(".fa").on("click", function(e) {
 			e.preventDefault();
-			//console.log(this);
-			if ($(this).hasClass("open")) {
-				$(this).removeClass("open");
-				$(this).children("ul").slideUp("fast");
+			console.log($("#dropdown"));
+			if ($("#dropdown").hasClass("open")) {
+				$("#dropdown").removeClass("open");
+				$("#dropdown").children("ul").slideUp();
 			} else {
-				$(this).addClass("open");
-				$(this).children("ul").slideDown("fast");
+				$("#dropdown").addClass("open");
+				$("#dropdown").children("ul").slideDown();
 			}
 		});
 
@@ -315,7 +315,9 @@ $(function() {
 			$.colorbox({
 				href: "Guess.php",
 				onClosed: game.hide_guess,
-				title: "Game is paused."
+				title: "Game is paused.",
+				escKey: false,
+				overlayClose: false
 			});
 		} else {
 
@@ -480,13 +482,17 @@ $(function() {
 				$.colorbox({
 					href: "PlayPrinceYou.php",
 					onClosed: game.hide_guess,
-					title: "Who would you like to Prince?"
+					title: "Who would you like to Prince?",
+					escKey: false,
+					overlayClose: false
 				});
 			} else {
 				$.colorbox({
 					href: "PlayPrince.php",
 					onClosed: game.hide_guess,
-					title: "Who would you like to Prince?"
+					title: "Who would you like to Prince?",
+					escKey: false,
+					overlayClose: false
 				});
 			}
 		} else {

@@ -24,10 +24,13 @@
 		<div id="dropdown" class="ddmenu">
 			<i class="fa fa-plus" aria-hidden="true"></i>
 			<ul>
-				<li><a href="Love_Letter_Rules.pdf">Rules</a>
+				<li><a href="Love_Letter_Rules.pdf" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Rules</a>
 				</li>
-				<li><a href="https://github.com/kgneil/SeniorProject">Github</a>
+				<li><a href="https://github.com/kgneil/SeniorProject"  target="_blank"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
 				</li>
+				<li><a href="http://turing.plymouth.edu/~kgneil/SeniorProject/WriteUp.html"  target="_blank"><i class="fa fa-file-text" aria-hidden="true"></i> Report</a>
+				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -45,13 +48,12 @@
 						<div class="deckSize"></div>
 					</div>
 					<div class="unknown">
-						<h3>Removed Cards</h3>
+						<h3>&nbspRemoved Cards</h3>
 						<ul class="UK"></ul>
 					</div>
 
 				</div>
 				<div class="computerSpace">
-
 					<ul class="PlayedCards"></ul>
 					<ul class="hand"></ul>
 					<div class="handmaid"></div>
@@ -63,7 +65,7 @@
 				<ul class="PlayedCards"></ul>
 				<ul class="hand"></ul>
 				<div class="handmaid"></div>
-				<ul class="tokens">Tokens</ul>
+				<ul class="tokens"></ul>
 			</div>
 
 			<div class="referenceCard">

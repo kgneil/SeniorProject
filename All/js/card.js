@@ -66,7 +66,7 @@ BaronCard.prototype = Object.create(Card.prototype);
 BaronCard.prototype.constructor = BaronCard;
 
 BaronCard.prototype.description = function() {
-    return "You and another player secretly compare hands. The player with the lower value looses.";
+    return "You and another player compare hands. The player with the lower value looses.";
 }
 
 BaronCard.prototype.template = function() {

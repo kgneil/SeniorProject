@@ -25,10 +25,11 @@ li {
 li > img {
     height: 225px;
     width: 180px;
-    margin-right: 35px;
+    
 
 }
 .computerSpace >.hand> li > img {
+	margin-right: 50px;
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -113,7 +114,7 @@ ul.UK {
     height: 230px;
     width: 180px;
     float: left;
-    margin-right: 40px;
+    margin-right: 50px;
     text-align: left;
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
@@ -188,8 +189,9 @@ ul.UK {
 }
 .hand {
     height: 245px;
-    width: 455px;
+    width: 480px;
     margin: 0px;
+	padding-left:55px;
     margin-bottom: 0px;
 }
 .guesses{
@@ -225,9 +227,10 @@ ul.UK {
 .referenceCard {
     display: inline;
 }
+
 .selected {
     border: 3px solid #0f0;
-    font-weight: 500;
+    font-weight: bold;
 }
 .referenceCard>img {
 	height: 375px;
@@ -296,7 +299,7 @@ ul.tokens {
   text-decoration: none;
 }
 .card:hover {
-    border-right: 5px solid #000;
+    border: 3px solid #050505;
 }
 #wrapper {
     padding-top: 0px;
@@ -369,12 +372,16 @@ a {
 	color: #B6B6B6;
 	font-family: 'Merriweather', serif;
 }
+#cboxClose {
+	visibility: hidden;
+}
 
 /* user menu settings */
 /*http://blog.teamtreehouse.com/stylish-custom-user-settings-dropdown-menu-with-css */
 #dropdown { 
   display: block;
-  padding: 13px 16px;
+  z-index: 1;
+  padding: 5px 16px;
   width: 266px;
   margin: 0 auto;
   position: relative;
@@ -393,24 +400,26 @@ a {
 
 #dropdown.open {
   background-color: #B3CEE8;
-  border-left: 4px solid #26527C;
+  /*border-left: 4px solid #26527C;*/
   color: #B6B6B6;
 }
 #dropdown {
-	width: 100px;
+	width: 120px;
 	background: #B3CEE8;
 }
 #dropdown ul { 
-background: #26527C;
+	background: #26527C;
+	/*background: #901326;*/
   position: absolute;
   top: 100%;
   left: -4px; /* move content -4px because of container left border */
   /*width: 266px;*/
   padding: 5px 0px;
   display: none;
+  margin: 5px;
 
 }
-#dropdown ul li { font-size: 0.3em; }
+#dropdown ul li { font-size: 10px; }
 
 #dropdown ul li a { 
   text-decoration: none;
@@ -419,7 +428,9 @@ background: #26527C;
   padding: 7px 15px;
 }
 #dropdown ul li a:hover {
-  color: #6fa0e9;
+  /*color: #6fa0e9;*/
+  color: #d3d3d3;
   background: #26527C;
 }
+
 .
