@@ -16,7 +16,7 @@ $(function() {
 
 	game.init = function() {
 
-		$(".fa").on("click", function(e) {
+		$(".fa-plus").on("click", function(e) {
 			e.preventDefault();
 			console.log($("#dropdown"));
 			if ($("#dropdown").hasClass("open")) {
@@ -29,6 +29,9 @@ $(function() {
 		});
 
 		$(document).on("click", ".card", game.card_click);
+		$(document).on("click", ".fa-trash", game.delete_messages);
+		$(document).on("click", ".fa-lightbulb-o", game.suggest);
+		$(document).on("click", ".fa-close", game.close_message);
 		$(document).on("click", "#GPriest", function() {
 			game.guessCard("Priest");
 		});
@@ -63,6 +66,7 @@ $(function() {
 	//Resets the game after every round
 	game.reset = function() {
 		game.checkEnd();
+		game.message("New", "New Round");
 		game.deck = new Deck();
 		game.player = new Player();
 		game.computer = new Player();
@@ -76,6 +80,7 @@ $(function() {
 		console.log("Lost");
 		game.playerWins = 0;
 		game.compWins = 0;
+		game.delete_messages();
 		game.deck = new Deck();
 		game.player = new Player();
 		game.computer = new Player();
@@ -105,34 +110,17 @@ $(function() {
 
 	//Checks to see what each player has when there are no more cards left
 	game.deckEmpty = function() {
-		$.growl.warning({
-			title: "DECK EMPTY",
-			message: "There are no more cards left",
-			location: "br"
-		});
+		game.message("Info", "The Deck is empty");
 		
 		var compCard = game.computer.hand;
 		var playCard = game.player.hand;
 		if (compCard[0].point < playCard[0].point) {
-			$.growl.notice({
-				title: "DECK EMPTY",
-				message: "You have a higher Card",
-				location: "br"
-			});
+			game.message("Info", "You have a higher Card");
 			game.win();
 		} else if (compCard[0].point > playCard[0].point) {
-			$.growl.error({
-				title: "DECK EMPTY",
-				message: "The computer has a higher Card",
-				location: "br"
-			});
+			game.message("Info", "The computer has a higher Card");
 			game.lose();
 		} else if (compCard[0].point == playCard[0].point) {
-			$.growl.warning({
-				title: "TIE BREAKER",
-				message: "You guys have the same card!",
-				location: "br"
-			});
 			setTimeout(game.tie, game.COMPUTER_DELAY);
 		}
 	}
@@ -146,18 +134,10 @@ $(function() {
 		console.log("Computer cards total: " + compCards);
 
 		if (playerCards > compCards) {
-			$.growl.notice({
-				title: "TIE BREAKER",
-				message: "YOU WIN!!",
-				location: "br"
-			});
+			game.message("Info", "Tie Breaker: You Win!!!");
 			setTimeout(game.win, game.COMPUTER_DELAY);
 		} else {
-			$.growl.error({
-				title: "TIE BREAKER",
-				message: "YOU LOSE",
-				location: "br"
-			});
+			game.message("Info", "Tie Breaker: You Lose!");
 			setTimeout(game.lose, game.COMPUTER_DELAY);
 		}
 
@@ -186,6 +166,7 @@ $(function() {
 	game.computer_turn = function() {
 		game.computer.handmaid = false;
 		game.playerTurn = false;
+		game.message("Comp", "The computer's turn");
 		var cardDrawn = game.computer.drawCard();
 		if (cardDrawn) {
 			game.update_display();
@@ -240,11 +221,8 @@ $(function() {
 		game.player.handmaid = false;
 		var cardDrawn = game.player.drawCard();
 		game.update_display();
-		$.growl.notice({
-			title: "Your Turn",
-			message: "It is now your turn!",
-			location: "br"
-		});
+		game.message("User", "Your Turn");
+
 		game.playerTurn = true;
 
 	};
@@ -259,50 +237,29 @@ $(function() {
 		//console.log("Guess a " + card);
 		$.colorbox.close();
 		if (game.playerTurn == true) {
+			game.message("User", "You played a guard and guessed a " + card);
 			if (game.computer.hand[0].type == card && game.computer.handmaid == false) {
-				$.growl.notice({
-					title: "Guard",
-					message: "The Computer has a " + card + "! You WON!!!!!",
-					location: "br"
-				});
+				game.message("User", "The Computer has a " + card + "! You WON!!!!!");
 				setTimeout(game.win, game.COMPUTER_DELAY);
 			} else if (game.computer.handmaid === true) {
-				$.growl.warning({
-					title: "ACTIVE HANDMAID",
-					message: "The Computer has an active handmaid.",
-					location: "br"
-				});
+				game.message("Comp", "The Computer has an active handmaid.");
 				setTimeout(game.computer_turn, game.COMPUTER_DELAY);
 			}
 			else {
-				$.growl.error({
-					title: "Guard",
-					message: "The Computer does not have a " + card + "!",
-					location: "br"
-				});
+				game.message("User", "The Computer does not have a " + card + "!");
 				setTimeout(game.computer_turn, game.COMPUTER_DELAY);
 			}
+			//The computers turn
 		} else {
-			$.growl.warning({
-				title: "Guard",
-				message: "Computer used a Guard and guessed a " + card + ".",
-				location: "br"
-			});
+			game.message("Comp", "Computer used a Guard and guessed a " + card + ".");
 			if (game.player.hand[0].type == card && game.player.handmaid == false) {
-				$.growl.error({
-					title: "Guard",
-					message: "You have a " + card + "! You Lose!!!!!",
-					location: "br"
-				});
+				game.message("Comp", "You have a " + card + ". You Lose!");
 				setTimeout(game.lose, game.COMPUTER_DELAY);
 			} else if (game.player.handmaid === true) {
-				$.growl.notice({
-					title: "Active Handmaid",
-					message: "You have an active handmaid",
-					location: "br"
-				});
+				game.message("User", "You have an active handmaid");
 				setTimeout(game.begin_turn, 4000);
 			} else {
+				game.message("Comp", "You do not have a " + card + ".");
 				setTimeout(game.begin_turn, 4000);
 			}
 		}
@@ -348,12 +305,9 @@ $(function() {
 	game.applyPriest = function() {
 
 		if (game.playerTurn == true) {
+			game.message("User", "You used a Priest");
 			if (game.computer.handmaid == true) {
-				$.growl.warning({
-					title: "Active Handmaid",
-					message: "Computer has a handmaid active.",
-					location: "br"
-				});
+				game.message("Comp", "Computer has a handmaid active.");
 				setTimeout(game.computer_turn, 3000);
 			} else {
 				var f = function() {
@@ -362,24 +316,12 @@ $(function() {
 				setTimeout(f, 1000);
 			}
 		} else {
-			$.growl.error({
-					title: "Priest",
-					message: "The computer just played a Priest",
-					location: "br"
-				});
+			game.message("Comp", "The computer just played a Priest");
 			if (game.player.handmaid == true) {
-				$.growl.notice({
-					title: "Active Handmaid",
-					message: "You have a handmaid active.",
-					location: "br"
-				});
+				game.message("User", "You have a handmaid active.");
 				setTimeout(game.begin_turn, 3000);
 			} else {
-				$.growl.error({
-					title: "Priest",
-					message: "You just showed your card to the computer",
-					location: "br"
-				});
+				game.message("Comp", "You just showed your card to the computer");
 				setTimeout(game.begin_turn, 3000);
 			}
 		}
@@ -417,12 +359,9 @@ $(function() {
 	//Baron also calls show card and the players compare and the winner wins
 	game.applyBaron = function() {
 		if (game.playerTurn == true) {
+			game.message("User", "You Played Baron");
 			if (game.computer.handmaid == true) {
-				$.growl.warning({
-					title: "Active Handmaid",
-					message: "The computer has an active handmaid",
-					location: "br"
-				});
+				game.message("Comp", "Computer has a handmaid active.");
 				setTimeout(game.computer_turn, 3000);
 			} else {
 				var f = function() {
@@ -431,24 +370,11 @@ $(function() {
 				setTimeout(f, 1000);
 			}
 		} else {
-			$.growl.warning({
-					title: "Baron",
-					message: "The computer has played a Baron",
-					location: "br"
-			});
+			game.message("Comp", "The computer has played a Baron");
 			if (game.player.handmaid == true) {
-				$.growl.notice({
-					title: "Handmaid",
-					message: "You have an active Handmaid",
-					location: "br"
-				});
+				game.message("User", "You have a handmaid active.");
 				setTimeout(game.begin_turn, 3000);
 			} else {
-				$.growl.warning({
-					title: "Baron",
-					message: "Computer is playing a Baron",
-					location: "br"
-				});
 				var f = function() {
 					game.showCard("Baron");
 				}
@@ -461,14 +387,11 @@ $(function() {
 	game.applyHandmaid = function() {
 		if (game.playerTurn == true) {
 			game.player.handmaid = true;
+			game.message("User", "You have played a Handmaid");
 			setTimeout(game.computer_turn, 2000);
 		} else {
 			game.computer.handmaid = true;
-			$.growl.error({
-				title: "Handmaid",
-				message: "The computer has played a Handmaid",
-				location: "br"
-			});
+			game.message("Comp", "The computer has played a Handmaid");
 			setTimeout(game.begin_turn, 2000);
 
 		}
@@ -496,11 +419,6 @@ $(function() {
 				});
 			}
 		} else {
-			$.growl.error({
-				title: "Prince",
-				message: "The computer is Playing a Prince",
-				location: "br"
-			});
 			if (game.player.handmaid) {
 				game.ComputerPrinced();
 			} else {
@@ -513,13 +431,10 @@ $(function() {
 	//Applies princess
 	game.applyPrincess = function() {
 		if (game.playerTurn == true) {
+			game.message("User", "You have played a Princess");
 			game.lose();
 		} else {
-			$.growl.error({
-				title: "Princess",
-				message: "The computer is Playing a Princess",
-				location: "br"
-			});
+			game.message("Comp", "The computer has played a Princess");
 			game.win();
 		}
 	}
@@ -527,13 +442,10 @@ $(function() {
 	//Applies Princess
 	game.applyCountess = function() {
 		if (game.playerTurn == true) {
+			game.message("User", "You have played a Countess");
 			setTimeout(game.computer_turn, game.COMPUTER_DELAY);
 		} else {
-			$.growl.error({
-				title: "Countess",
-				message: "The computer has played a Countess",
-				location: "br"
-			});
+			game.message("Comp", "The computer has played a Countess");
 			setTimeout(game.begin_turn, 4000);
 
 		}
@@ -544,11 +456,7 @@ $(function() {
 		//console.log("apply king");
 		if (game.playerTurn == true) {
 			if (game.computer.handmaid == false) {
-				$.growl.notice({
-					title: "King",
-					message: "You traded Cards with the computer",
-					location: "br"
-				});
+				game.message("User", "You have played a King and traded Cards with the computer");
 				var playerCard = game.player.hand[0];
 				var compCard = game.computer.hand[0];
 				game.player.kinged(compCard);
@@ -556,25 +464,13 @@ $(function() {
 				game.update_display();
 				setTimeout(game.computer_turn, 4000);
 			} else {
-				$.growl.warning({
-					title: "Active Handmaid",
-					message: "The computer has an active handmaid",
-					location: "br"
-				});
+				game.message("Comp", "The computer has an active handmaid");
 				setTimeout(game.computer_turn, 4000);
 			}
 		} else {
-			$.growl.error({
-				title: "King",
-				message: "The computer is Playing a King",
-				location: "br"
-			});
+			
 			if (game.player.handmaid == false) {
-				$.growl.error({
-					title: "King",
-					message: "You traded Cards with the computer",
-					location: "br"
-				});
+				game.message("Comp", "The computer has played a King and traded cards with you.");
 				var playerCard = game.player.hand[0];
 				var compCard = game.computer.hand[0];
 				game.player.kinged(compCard);
@@ -582,11 +478,7 @@ $(function() {
 				game.update_display();
 				setTimeout(game.begin_turn, 4000);
 			} else {
-				$.growl.notice({
-					title: "Active Handmaid",
-					message: "You have an active handmaid",
-					location: "br"
-				});
+				game.message("User", "You have an active handmaid");
 				setTimeout(game.begin_turn, 4000);
 			}
 
@@ -601,21 +493,13 @@ $(function() {
 			game.player.princed();
 			game.update_display();
 			if (card.type == "Princess") {
-				$.growl.error({
-					title: "Princed",
-					message: "You have been princed and were forced to discard the Princess",
-					location: "br"
-				});
+				game.message("User", "You have been Princed and were forced to discard the Princess");
 				setTimeout(game.lose, 4000);
 			} else if (game.playerTurn == true) {
-
+				game.message("User", "You have Princed yourself and discarded your card");
 				setTimeout(game.computer_turn, 4000);
 			} else {
-				$.growl.error({
-					title: "Princed",
-					message: "You have been princed",
-					location: "br"
-				});
+				game.message("Comp", "The computer played a prince and chose to prince you.");
 				setTimeout(game.begin_turn, 4000);
 			}
 
@@ -629,22 +513,15 @@ $(function() {
 		game.computer.princed();
 		game.update_display();
 		if (card.type == "Princess") {
-			$.growl.notice({
-				title: "Princed",
-				message: "The computer has been princed and was forced to discard the Princess",
-				location: "br"
-			});
+			game.message("Comp", "The computer has been princed and was forced to discard the Princess");
 			setTimeout(game.win, 4000);
 		}
 		if (game.playerTurn == true) {
+			game.message("User", "You have princed the computer.");
 			//$.growl.notice({ title: "Princed", message: "You have Princed yourself", location: "br" });
 			setTimeout(game.computer_turn, 4000);
 		} else {
-			$.growl.error({
-				title: "Princed",
-				message: "The computer Princed themeself",
-				location: "br"
-			});
+			game.message("Comp", "The computer Princed themeself");
 			setTimeout(game.begin_turn, 4000);
 		}
 
@@ -781,8 +658,112 @@ $(function() {
 		game.display_unknown();
 	};
 	
+	game.message = function(type, mess){
+		console.log(mess);
+		var $message = $("#notification .container");
+		if(type=="User"){
+			$message.prepend('<div class="item note note-success">'+
+					'<div class="item-image note-icon">'+
+					'<i class="fa fa-user" ></i></div>'+
+					'<div class="item-body note-text">'+mess+'</div>'+
+					'<a href="#" class="note-close"><i class="fa fa-close"></i></a></div>');			
+		}
+		else if(type=="Comp"){
+			$message.prepend('<div class="item note note-secondary">'+
+					'<div class="item-image note-icon">'+
+					'<i class="fa fa-desktop" style="padding-right:3px;padding-left:3px;"></i></div>'+
+					'<div class="item-body note-text">'+mess+'</div>'+
+					'<a href="#" class="note-close"><i class="fa fa-close"></i></a></div>');
+			
+		}
+		else if(type=="Info"){
+			$message.prepend('<div class="item note note-gray">'+
+					'<div class="item-image note-icon">'+
+					'<i class="fa fa-exclamation-circle" style="padding-right:7px;padding-left:6px;"></i></div>'+
+					'<div class="item-body note-text">'+mess+'</div>'+
+					'<a href="#" class="note-close"><i class="fa fa-close"></i></a></div>');
+			
+		}
+		else{
+			$message.prepend('<div class="item note note-info">'+
+					'<div class="item-image note-icon">'+
+					'<i class="fa fa-magic" style="padding-right:4px;padding-left:7px;"></i></div>'+
+					'<div class="item-body note-text">'+mess+'</div>'+
+					'<a href="#" class="note-close"><i class="fa fa-close"></i></a></div>');
+			
+		}
+		
+	}
+	
+	game.delete_messages = function(){
+		var $messages = $("#notification .container");
+		$messages.empty();
+		
+	}
+	
+	game.suggest = function(){
+		
+		console.log("hi");
+		if(game.playerTurn==true){
+			var $messages = $("#notification .container");
+			var hand = game.player.hand;
+			var card1 = hand[0];
+			var card2 = hand[1];
+			var card;
+			if (card1.point == 7) {
+				//second card is either a prince or a king
+				if (card2.point == 5 || card2.point == 6) {
+					card = card1;
+				} else if (card1.point < card2.point) {
+					card = card1;
+				} else {
+					card = card2;
+				}
+			//if the second card is a countess 
+			} else if (card2.point == 7) {
+				//checks to see if it is a prince or king
+				if (card1.point == 5 || card1.point == 6) {
+					card = card2;
+				} else if (card1.point < card2.point) {
+					card = card1;
+				} else {
+					card = card2;
+				}
+			} else if (card1.point == 2 && card2.point==1) {
+				card=card1;
+			}else if (card1.point == 1 && card2.point==2) {
+				card=card2;
+			//else just pick the card that is the lower card
+			}else if (card1.point < card2.point) {
+				card = card1;
+			} else {
+				card = card2;
+			}
+			$messages.prepend('<div class="item note note-info">'+
+					'<div class="item-image note-icon">'+
+					'<i class="fa fa-lightbulb-o" style="padding-right:11px;padding-left:10px;"></i></div>'+
+					'<div class="item-body note-text">You should play the '+card.type+' card</div>'+
+					'<a href="#" class="note-close"><i class="fa fa-close"></i></a></div>');
+		}
+		else{
+			//nothing
+		}
+		
+		
+		
+	}
+	
+	game.close_message = function(){
+		var $message = this.parentElement.parentElement;
+		console.log($message);
+		$message.remove();
+
+		
+	}
+	
 	game.lose = function() {
 		game.compWins = game.compWins + 1;
+		game.message("Info", "You have lost this round");
 		$.colorbox({
 			href: "./images/lose.jpg",
 			onClosed: game.reset,
@@ -793,6 +774,7 @@ $(function() {
 	game.win = function() {
 
 		game.playerWins = game.playerWins + 1;
+		game.message("Info", "You have won this round!!!");
 		$.colorbox({
 			href: "./images/won.jpg",
 			onClosed: game.reset,

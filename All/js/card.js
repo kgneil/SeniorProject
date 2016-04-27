@@ -18,7 +18,7 @@ GuardCard.prototype.description = function() {
 
 GuardCard.prototype.template = function() {
     var template =  '<li>' +
-                    '<div class="card" data-id="' + this.id + '">' +
+                    '<div class="card hvr-grow" data-id="' + this.id + '">' +
                     '<h4>1</h4>' + 
                     '<header>' + this.type + '</header>' +
 					'<img src="./images/GuardPerson.png" alt="Guard">' +
@@ -45,7 +45,7 @@ PriestCard.prototype.description = function() {
 
 PriestCard.prototype.template = function() {
     var template =  '<li>' +
-                    '<div class="card" data-id="' + this.id + '">' +
+                    '<div class="card hvr-grow" data-id="' + this.id + '">' +
                     '<h4>2</h4>' + 
                     '<header>' + this.type + '</header>' +
 					'<img src="./images/PriestPerson.png" alt="Guard" style="height:110px;">' +
@@ -71,7 +71,7 @@ BaronCard.prototype.description = function() {
 
 BaronCard.prototype.template = function() {
     var template =  '<li>' +
-                    '<div class="card" data-id="' + this.id + '">' +
+                    '<div class="card hvr-grow" data-id="' + this.id + '">' +
                     '<h4>3</h4>' + 
                     '<header>' + this.type + '</header>' +
 					'<img src="./images/BaronPerson.png" alt="Baron" style="height:110px;">' +
@@ -97,7 +97,7 @@ HandmaidCard.prototype.description = function() {
 
 HandmaidCard.prototype.template = function() {
     var template =  '<li>' +
-                    '<div class="card" data-id="' + this.id + '">' +
+                    '<div class="card hvr-grow" data-id="' + this.id + '">' +
                     '<h4>4</h4>' + 
                     '<header>' + this.type + '</header>' +
 					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'" style="width:90px;height:110px;">' +
@@ -123,7 +123,7 @@ PrinceCard.prototype.description = function() {
 
 PrinceCard.prototype.template = function() {
     var template =  '<li>' +
-                    '<div class="card" data-id="' + this.id + '">' +
+                    '<div class="card hvr-grow" data-id="' + this.id + '">' +
                     '<h4>5</h4>' + 
                     '<header>' + this.type + '</header>' +
 					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'" style="height:100px;">' +
@@ -149,7 +149,7 @@ KingCard.prototype.description = function() {
 
 KingCard.prototype.template = function() {
     var template =  '<li>' +
-                    '<div class="card" data-id="' + this.id + '">' +
+                    '<div class="card hvr-grow" data-id="' + this.id + '">' +
                     '<h4>6</h4>' + 
                     '<header>' + this.type + '</header>' +
 					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'" style="height:115px;">' +
@@ -175,7 +175,7 @@ CountessCard.prototype.description = function() {
 
 CountessCard.prototype.template = function() {
     var template =  '<li>' +
-                    '<div class="card" data-id="' + this.id + '">' +
+                    '<div class="card hvr-grow" data-id="' + this.id + '">' +
                     '<h4>7</h4>' + 
                     '<header>' + this.type + '</header>' +
 					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'">' +
@@ -201,7 +201,7 @@ PrincessCard.prototype.description = function() {
 
 PrincessCard.prototype.template = function() {
     var template =  '<li>' +
-                    '<div class="card" data-id="' + this.id + '">' +
+                    '<div class="card hvr-grow" data-id="' + this.id + '">' +
                     '<h4>8</h4>' + 
                     '<header>' + this.type + '</header>' +
 					'<img src="./images/'+this.type+'Person.png" alt="'+this.type+'" style="height:115px;">' +

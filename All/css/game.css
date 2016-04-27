@@ -230,7 +230,7 @@ ul.UK {
 
 .selected {
     border: 3px solid #0f0;
-    font-weight: bold;
+    font-weight: 500;
 }
 .referenceCard>img {
 	height: 375px;
@@ -320,7 +320,7 @@ button {
     font-size: inherit;
     font-weight: 700;
     letter-spacing: 1px;
-    margin: 0px;
+    margin: 10px;
     outline: none;
     padding: 25px 0;
     text-align: center;
@@ -427,6 +427,7 @@ a {
   color:  #B6B6B6;
   padding: 7px 15px;
 }
+
 #dropdown ul li a:hover {
   /*color: #6fa0e9;*/
   color: #d3d3d3;

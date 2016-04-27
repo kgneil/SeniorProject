@@ -5,6 +5,8 @@
 	<link href="css/external/jquery.growl.css" rel="stylesheet" type="text/css" />
 	<link href="css/external/colorbox.css" rel="stylesheet" type="text/css" />
 	<link href="css/game.css" rel="stylesheet" type="text/css" />
+	<link href="css/hover.css" rel="stylesheet" type="text/css" />
+	
 	<link href='https://fonts.googleapis.com/css?family=Dancing+Script|Satisfy|Cookie|Pinyon+Script|Niconne|Homemade+Apple' rel='stylesheet' type='text/css'>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -15,6 +17,9 @@
 	<script src="js/deck.js"></script>
 	<script src="js/player.js"></script>
 	<script src="js/card.js"></script>
+	<script src="http://anijs.github.io/lib/anijs/anijs.js"></script>
+	<link href="css/note.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css" />
 </head>
 
 
@@ -22,13 +27,17 @@
 	<h1>Love Letter</h1>
 	<div class="Menu">
 		<div id="dropdown" class="ddmenu">
-			<i class="fa fa-plus" aria-hidden="true"></i>
+
+			<i class="fa fa-plus hvr-bob" aria-hidden="true"></i>
+
 			<ul>
 				<li><a href="Love_Letter_Rules.pdf" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Rules</a>
 				</li>
 				<li><a href="https://github.com/kgneil/SeniorProject"  target="_blank"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
 				</li>
 				<li><a href="http://turing.plymouth.edu/~kgneil/SeniorProject/WriteUp.html"  target="_blank"><i class="fa fa-file-text" aria-hidden="true"></i> Report</a>
+				</li>
+				<li><a href="http://turing.plymouth.edu/~kgneil/LoveLetter/game.php" ><i class="fa fa-refresh" aria-hidden="true"></i> Restart</a>
 				</li>
 				
 			</ul>
@@ -71,9 +80,27 @@
 			<div class="referenceCard">
 				<img src="images/ListOfCards.png" alt="Reference Card" />
 			</div>
+			<!--delete this -->
+			<div id="demo-notification">
+    <div id="notification">
+      <div class="toolbar">
+        <div class="delete">
+          <i class="fa fa-trash"></i>
+        </div>
+		<div class="app-icon load-more">
+          <i class="fa fa-lightbulb-o"></i>
+        </div>
+      </div>
+      <div class="container">
+
+
+    </div>
+  </div>
+  <!--delete this -->
 		</div>
 
 		<footer>Kelsey Neil Senior Project</footer>
+	</div>
 	</div>
 </body>
 

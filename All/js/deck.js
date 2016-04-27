@@ -137,6 +137,10 @@ function Deck() {
 			for (var i = 0; i < size; i++) {
 				if(this.deck[i].point==5 || this.deck[i].point==6){
 					this.computerGuesses.push(this.deck[i].point);
+					this.computerGuesses.push(this.deck[i].point);
+				}
+				else if(this.deck[i].point==8){
+					this.computerGuesses.push(this.deck[i].point);
 				}
 				else{
 					//nothing
